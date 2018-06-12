@@ -7,10 +7,11 @@ navbar:
       href: about.html
     - text: "Current Projects"
       href: projects.html
-    - text: "CV"
+    - text: "Publications"
       href: cv.html
     - text: "Methods"
       href: methods.html
+
   right:
     - icon: fa-envelope fa-lg
       href: contact.html
