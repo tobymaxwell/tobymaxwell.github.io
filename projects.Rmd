@@ -1,9 +1,5 @@
 ---
 ---
-<img src="images/field.jpg" style="width:150%; border:1px solid; margin-right: 20px" align="center">  
-Digging soil pits across a land use gradient in Brasil, July, 2015
-&nbsp;   
-
 #Current Projects
 ###The climate paradox: mapping resilience and vulnerability of montane forests
 <img src="images/EVI.jpg" style="width:25%; border:2px solid; margin-right: 20px" align="left"> 
