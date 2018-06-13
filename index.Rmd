@@ -2,10 +2,8 @@
 ---
 <link rel="stylesheet" href="styles.css" type="text/css">
 
-<img src="images/spa.jpg" style="width:50%; border:5px solid; margin-right: 20px" align="left">
+<img src="images/sampling.jpg" style="width:50%; border:5px solid; margin-right: 20px" align="left">
 
-I am a biogeochemist managing the [Soil Plant Atmosphere Lab](https://www.soilplantatmosphere.com) in the department of Ecology and Evolution at University of Oregon.  
+I am a biogeochemist managing Lucas Silva's [Soil Plant Atmosphere Lab](https://www.soilplantatmosphere.com) in the department of Ecology and Evolution at the University of Oregon.  
 &nbsp;  
-I am a post doctoral scholar studying resiliance and vulnerability from the tree to landscape scale in mountain forests.  
-&nbsp;  
-My work seeks to evaluate the impacts of climate change across the landscape by merging classical metrics of soil quality and fertility, with trait based and physiological indicators of plant respones to stress. Site level data is then used in combination with remotely sensed and modeled data to connect what is known about local processes better landscape responses. 
+Currently a post doctoral scaholar, my work seeks to evaluate the impacts of climate change across the landscape by merging classical metrics of soil quality and fertility, with trait based and physiological indicators of plant respones to stress. I specialize in applying statistical models and geospatial analysis to connect site level information with remotely sensed and modeled data. By doing so it is possible to use what is observed in local processes to improve prediction of landscape responses to disturbances. 
