@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "1152959842",
     "id" : "EF58CF67",
-    "lastKnownWriteTime" : 1528856914,
-    "last_content_update" : 1528856914455,
+    "lastKnownWriteTime" : 1528907320,
+    "last_content_update" : 1528907320477,
     "path" : "~/Documents/GitHub/tobymaxwell.github.io/projects.Rmd",
     "project_path" : "projects.Rmd",
     "properties" : {
-        "cursorPosition" : "17,506",
-        "scrollLine" : "7"
+        "cursorPosition" : "21,637",
+        "scrollLine" : "10"
     },
     "relative_order" : 3,
     "source_on_save" : false,

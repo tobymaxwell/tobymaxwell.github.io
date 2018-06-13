@@ -1,0 +1,42 @@
+---
+
+---
+
+###Methods of Analysis
+
+Coming from the world of chemistry I strongly believe that lab work is about fine tuning rather than about simply generating a result. To that end I am trying to publish reproducable methods with pro tips on this site. Comments, questions, and criticsm are all welcome!  
+
+Below I try to briefly introduce why one would go about measuring something, and then a link is provided to tell you everything I know about making the right decisions to get an accurate measurement with both anecdotal and literature based references were possible.
+
+#####Soil Iron and Aluminum Mineralogy
+Important for mineralogical analysis, and selective dissolution of different mineral forms of iron and aluminum. This method is growing in use and popularity for evaluating soil carbon storage potentia because of recently published work that suggests soil mineral characteristics may better predict carbon storage/potential than more classic concepts (i.e. texture). Methods [here](files/Soil_iron_assays.pdf).
+
+###Coming soon...
+
+#####Soil Texture Analysis
+
+#####Soil Avalable Water Capacity
+
+#####Soil Bulk Density
+
+#####Soil pH
+
+#####Soil Nitrate and Ammonium Analysis
+
+#####Soil/plant Phosphorous Analysis
+
+#####Total Carbon and Nitrogen Analysis
+
+#####Soil Lipid Fractionations
+
+#####Cellulose Extraction from plant tissue
+
+#####Accessing SSURGO Data in R
+
+#####MODIS/TERRA bulk extraction of data in R
+
+#####Basic use of Google Earth Engine for Time Series Analysis
+
+#####Trace Gas sampling protocols
+
+#####Leaf Area Index

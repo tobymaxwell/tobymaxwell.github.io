@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "1680726084",
     "id" : "A4535B9E",
-    "lastKnownWriteTime" : 1528854442,
-    "last_content_update" : 1528854442282,
+    "lastKnownWriteTime" : 1528907337,
+    "last_content_update" : 1528907337254,
     "path" : "~/Documents/GitHub/tobymaxwell.github.io/about.Rmd",
     "project_path" : "about.Rmd",
     "properties" : {
-        "cursorPosition" : "5,268",
+        "cursorPosition" : "5,141",
         "scrollLine" : "0"
     },
     "relative_order" : 2,
