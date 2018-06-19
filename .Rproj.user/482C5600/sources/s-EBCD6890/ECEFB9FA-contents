@@ -1,0 +1,10 @@
+---
+title: "Carbon and Nitrogen"
+author: "Toby Maxwell"
+date: "6/18/2018"
+output: html_document
+---
+Analysis of Total carbon and nitrogen are quite routine and almost every soils lab seems to be equipped with an elemental analyzer to do so in house. 
+```{r}
+
+```
