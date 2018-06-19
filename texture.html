@@ -292,18 +292,48 @@ silt&lt;-pctsilt(sand, clay)</code></pre>
 <li>Pre-Weigh sample tins which will be used to dispense aliquots of soil suspended in water.</li>
 <li>After shaking overnight, hand shake to further disperse and allow to settle according to the table below (temperature dependent).</li>
 </ol>
-<pre class="r"><code>settlingtime&lt;-NULL
-settlingtime$Temp&lt;-c(16,18,20,22,24,26)
-settlingtime$Sandmins&lt;-c(12.3,11.7,11.1,10.6,10.2,9.7)
-settlingtime$Claymins&lt;-c(128.1,121.9,116.1,110.8,105.8,101.2)
-as.data.frame(settlingtime)</code></pre>
-<pre><code>##   Temp Sandmins Claymins
-## 1   16     12.3    128.1
-## 2   18     11.7    121.9
-## 3   20     11.1    116.1
-## 4   22     10.6    110.8
-## 5   24     10.2    105.8
-## 6   26      9.7    101.2</code></pre>
+<table>
+<caption>Settling Times for Sand and Clay Sampling by Temperature</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Sand (minutes)</th>
+<th align="right">Clay (minutes)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>16°C</td>
+<td align="right">12.3</td>
+<td align="right">128.1</td>
+</tr>
+<tr class="even">
+<td>18°C</td>
+<td align="right">11.7</td>
+<td align="right">121.9</td>
+</tr>
+<tr class="odd">
+<td>20°C</td>
+<td align="right">11.1</td>
+<td align="right">116.1</td>
+</tr>
+<tr class="even">
+<td>22°C</td>
+<td align="right">10.6</td>
+<td align="right">110.8</td>
+</tr>
+<tr class="odd">
+<td>24°C</td>
+<td align="right">10.2</td>
+<td align="right">105.8</td>
+</tr>
+<tr class="even">
+<td>26°C</td>
+<td align="right">9.7</td>
+<td align="right">101.2</td>
+</tr>
+</tbody>
+</table>
 <ol start="6" style="list-style-type: decimal">
 <li>Pipette 2.5 mL from each vial 2.5 mL below the surface of the solution for each measurement of sand and clay. Dispense that in preweighed tins, dry in an oven until water is removed.</li>
 <li>Removed dried tins, allow to cool, and record dry weight to nearest 0.0001 grams. ####Calculations</li>
