@@ -20,8 +20,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -31,12 +31,10 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
 }
 </script>
 
@@ -236,11 +234,11 @@ $(document).ready(function () {
 <h3>Sampling</h3>
 <div id="random" class="section level5">
 <h5>Random</h5>
-<p>Within an area of interest use a random number generator to determine plot location on a grid. Then within that plot random numbers could be used beforehand to determine where to sample, or used with a compass to sample in random directions within a plot. A systematic variant of this, is to sample n locations at 360/n degrees, and x meters from the center of your plot. Each of these has advantages, and has been published, really it comes down to your ability to spend time setting up your sites, and the practical concerns on the ground.</p>
+<p>Within an area of interest use a random number generator to determine plot location on a grid. Then within that plot random numbers could be generated and use beforehand to determine where to sample, or used with a compass to sample in random directions within a plot. A systematic variant of this, is to sample n locations at 360/n degrees, and x meters from the center of your plot. Each of these has advantages, and has been published, really it comes down to your ability to spend time setting up your sites, and the practical concerns on the ground, e.g. are you near a cliff?!</p>
 </div>
 <div id="stratified-random-sampling" class="section level5">
 <h5>Stratified random sampling</h5>
-<p>Selecting Sites, plots, subplots based on categories. For example, aspect is important for determining many ecosystem properties, so one could sample plots at multiple aspects with the same vegetation types. You can do this for multiple levels of hierarchy, (e.g. vegetation type, on different aspects, within varied geology) but it generates a lot of sampling requirements very quickly!</p>
+<p>Selecting Sites, plots, subplots based on categories. For example, aspect is important for determining many ecosystem properties, so one could sample plots at multiple aspects with the same vegetation types. You can do this for multiple levels of hierarchy, (e.g. vegetation type, on different aspects, each within two soils types) but it generates a lot of sampling requirements very quickly!</p>
 </div>
 <div id="targeted" class="section level5">
 <h5>Targeted</h5>
@@ -251,7 +249,7 @@ $(document).ready(function () {
 <h3>Plot Types</h3>
 <div id="circular-or-square-plots" class="section level4">
 <h4>Circular or square plots</h4>
-<p>can be constructed to evaluate that particular area as representative. Circular plots can be easier because square plots reuiqre a compass to set up a large plot that is actually square.</p>
+<p>can be constructed to evaluate that a particular area as representative. Circular plots can be easier because square plots reuiqre a compass to set up a large plot that is actually square.</p>
 <div id="transects" class="section level5">
 <h5>Transects</h5>
 <p>can also be established, essentially this ends up being a long rectangle where there is some sampling criteria. For example, sample every tree with greater than 20 cm diameter.</p>
