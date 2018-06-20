@@ -20,8 +20,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -31,12 +31,10 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
 }
 </script>
 
@@ -241,7 +239,7 @@ $(document).ready(function () {
 </ol>
 <p>If the first two are your option, then you may want to pass the sample through a #40 sieve (425 micron) to assure consistent measurements.</p>
 <p>After grinding samples then need to be packaged into tin capsules and weighed on a micro balance to 0.001 mg accuracy.</p>
-<p>A note at this point, if you are measuring soils with carbonates present this will interfere with the analysis. You need to follow a separate procedure, detailed in the <a href="files/carbonatesoils.pdf">attached article by Harris et al.</a></p>
+<p>A note at this point, if you are measuring soils with carbonates present this will interfere with the analysis. You need to follow a separate procedure, detailed in the <a href="http://stableisotopefacility.ucdavis.edu/articles/Harris%20ea%202001(Acid%20Fumigation).pdf">attached article by Harris et al.</a></p>
 </div>
 <div id="elemental-analysis" class="section level3">
 <h3>Elemental Analysis</h3>
@@ -260,7 +258,7 @@ Scale</p>
 <div id="procedure" class="section level4">
 <h4>Procedure</h4>
 <p>Weigh crucible, add soil, weigh crucible with the soil, add to the oven and combust at 550°C for 3 hours.</p>
-<p>A more detailed description of the procedure, and parameterization of the concerns for mineral alterations can be read about in <a href="files/loi.pdf">this paper</a></p>
+<p>A more detailed description of the procedure, and parameterization of the concerns for mineral alterations can be read about in <a href="https://s3.amazonaws.com/academia.edu.documents/44088168/Estimating_soil_organic_carbon_through_l20160324-28196-w3id14.pdf?AWSAccessKeyId=AKIAIWOWYYGZ2Y53UL3A&amp;Expires=1529525147&amp;Signature=tngNbQh0MawmYpDVeTUckhX3IPQ%3D&amp;response-content-disposition=inline%3B%20filename%3DEstimating_soil_organic_carbon_through_l.pdf">this paper</a></p>
 </div>
 </div>
 

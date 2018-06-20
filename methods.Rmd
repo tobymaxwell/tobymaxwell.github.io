@@ -13,6 +13,9 @@ It is important to think about where variability lies in an experiment and sampl
 
 Then, comes design! I certainly can't provide a comprehensive list, but a few common field designs are mentioned in brief [here](design.html)
 
+#####**Soil Sampling**
+As with any sampling there is no one way to sample soil, but as it is notoriously heterogenous, methods must be refined to a research question to avoid extraneous sampling. Some tips for how to start thinking about this are included [here](ssampling.html). Also you should pick up a free copy of the USDA NRCS [Field Book for Describing and Sampling Soils](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/research/guide/?cid=nrcs142p2_054184).
+
 #####**Soil Texture Analysis**
 There are many reasons people measure soil texture. Some basic interests include links to hydrologic properties within and between layers, i.e. drainage, storage, and their kinetics. Also, carbon and nutrient storage and cycling, and microbial activity are all interdependent and often relate to the ability of a soil to store available nutrients and water. There is a 'goldilocks' zone where there is enough surface area to store nutrients and water, while still allowing some active movement and cylcing, rather than immobilizing soil water and nutrient flows. There are many methods for measuring soil texture, most common are hydrometer and pipette methods described [here](texture.html). Additionally particle size analyzers are commercially available which use [laser diffraction](https://en.wikipedia.org/wiki/Laser_diffraction_analysis).
 
