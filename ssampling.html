@@ -20,8 +20,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -31,10 +31,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -235,15 +237,15 @@ $(document).ready(function () {
 </div>
 <div id="how-many" class="section level4">
 <h4>How many?</h4>
-<p>Soil is very heterogenous so expecting low effect sizes over space, and between treatments is a good place to start. See my discussion on <a href="power.html">a priori tests of statistical power</a> to help decide how many samples you need. SUffice to say, you probably need more than the 3 required to make a standard deviation!</p>
+<p>Soil is very heterogenous so expecting low effect sizes over space, and between treatments is a good place to start. See my discussion on <a href="power.html">a priori tests of statistical power</a> to help decide how many samples you need. Suffice to say, you probably want more than the 3 required to make a standard deviation!</p>
 </div>
 <div id="active-biological-zone" class="section level4">
 <h4>Active Biological Zone</h4>
-<p>Commonly people will sample the to 10-15 centimeters of soils for microbial, nutrient, and carbon analysis. The reason is that this depth has been determined as the most active zone for biological cycling, thus different ecosystem types, or imposed treatments that may impact soil carbon, nitrogen, phosphorous cyling, may be most likely to generate an impact on this zone. Naturally, this will have an impact on the microbial community responsible for that cycling, and potentially on associated soil physical properties (e.g. water holding capacity, infiltration).</p>
+<p>Commonly people will sample the top 10-15 centimeters of soils for microbial, nutrient, and carbon analysis. The reason is that this depth has been determined as the most active zone for biological cycling, thus different ecosystem types, or imposed treatments that may impact soil carbon, nitrogen, phosphorous cyling, may be most likely to generate an impact on this zone. Naturally, this will have an impact on the microbial community responsible for that cycling, and potentially on associated soil physical properties (e.g. water holding capacity, infiltration).</p>
 </div>
 <div id="rooting-zone" class="section level4">
 <h4>Rooting Zone</h4>
-<p>If you want to go a little deeper and understand the impact of soil on water availability at a site, you may want to do some research as to the rooting depths and strategies of the plants in the area. If big trees are involved, naturally you can’t excavate or auger many meters down, but as clay content of a soil is largely responsible for its surface area, and resultant water holding capacity, it is worth augering down as close to 2 meters as possible since most of the clay is likely in that zone. Identifying depth increments is then required, and should be done as an educated guess (e.g. in the U.S.A. check out <a href="https://casoilresource.lawr.ucdavis.edu/gmap/">soilweb</a>, which is also available as an app), or by digging a real soil pit, identifying depths of important soil horizons, and then sampling other spots accordingly.</p>
+<p>If you want to go a little deeper and understand the impact of soil on water availability at a site, you may want to do some research as to the rooting depths and strategies of the plants in the area. If big trees are involved, naturally you can’t excavate or auger many meters down, but as clay content of a soil is largely responsible for its surface area, and resultant water holding capacity, it is worth augering down as close to 2 meters as possible since most of the clay is likely in that zone, and it may be a good proxy for understanding the overall soil water capacity. Identifying depth increments is then required, and should be done as an educated guess (e.g. in the U.S.A. check out <a href="https://casoilresource.lawr.ucdavis.edu/gmap/">soilweb</a>, which is also available as an app), or by digging a real soil pit, identifying depths of important soil horizons, and then sampling accordingly.</p>
 </div>
 <div id="impacts-of-topography" class="section level4">
 <h4>Impacts of topography</h4>
