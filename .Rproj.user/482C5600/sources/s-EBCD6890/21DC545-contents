@@ -1,0 +1,122 @@
+setwd("/Users/Maxwell/Documents/GitHub/Lipids/")
+inc<-read.csv("data.2.csv")
+library(extrafont)
+loadfonts(device = "win")
+library(ggplot2)
+library(minpack.lm)
+library(inflection)
+library(plyr)
+library(Rmisc)
+library(agricolae)
+inc$ID<-paste0(inc$Compound, inc$Time, inc$trt)
+inc$ff<-inc$atmpct18O/inc$Water.Source
+str(inc)
+str(inc)
+library(TTR)
+summary(lm(d18O~Time, inc[inc$trt=="Limonite"&inc$Compound == "Lip",]))
+ggplot(inc[inc$trt=="Limonite"&inc$Compound == "Lip",], aes(y=d18O,Time/24))+geom_point(size=3)+theme_classic()+ylab("d18O")+geom_line(data=inc.avg[inc.avg$trt=="Limonite"&inc.avg$Compound == "Lip",],lwd=1,linetype="solid" )+geom_smooth(data=inc[inc$Compound=="Lip",],formula=y~log(x), linetype="dashed", color = "black")+geom_smooth(method = "lm", linetype="dotdash", color = "Black")+theme(axis.title.x=element_text("Time (Days)"),axis.title.y=element_text(size = 18, family = "Book Antiqua"), axis.text.x=element_text(size = 16, angle = 80, vjust = .50), axis.text.y=element_text(size = 16, family = "Book Antiqua"),legend.text = element_text(size = 14, family="Book Antiqua"))+theme(legend.position = "bottom", axis.text.x = element_text(family="Book Antiqua"))
+
+limonite<-ts(inc.avg[inc.avg$trt=="Limonite"&inc.avg$Compound == "Lip",]$d18O, start = 0)
+Wheat.ts<-SMA(Wheat, 3)
+plot.ts(Wheat.ts)
+
+tail(inc)
+str(inc)
+inc$Time[inc$Time==0]<-0.01
+anova(lm(Dif~Compound:trt, inc))
+
+inc$Compound<-factor(inc$Compound, levels = c("Lip", "Hex", "Eic"))
+model<-formula(d18O~a*log(Time)+b)
+m.inc<-nlsLM(model,
+           data = inc[inc$Compound == "Lip"&inc$trt == "Water",],
+           start=list(a=1.3,b=16),
+           control = list(maxiter = 10000000, minFactor=.00001),
+           trace = TRUE) 
+m.inc2<-nlsLM(model,
+             data = inc[inc$Compound == "Lip"&inc$trt == "Limonite",],
+             start=list(a=1.3,b=16),
+             control = list(maxiter = 10000000, minFactor=.00001),
+             trace = TRUE) 
+inc$lipwaterline<-1.3246*log(inc$Time)+16.781
+inc.loess<-loess(d18O~Time, inc[inc$trt=="Water"&inc$Compound == "Lip",], family = "sym")
+plot(predict(m.inc)~inc[inc$trt=="Water"&inc$Compound == "Lip",]$Time)
+plot(d18O~Time, inc[inc$trt=="Water"&inc$Compound == "Lip",])
+
+findiplist(x=inc[inc$trt=="Limonite"&inc$Compound == "Lip",]$Time, y=inc[inc$trt=="Limonite"&inc$Compound == "Lip",]$d18O,1)
+findiplist(x=inc[inc$trt=="Water"&inc$Compound == "Lip",]$Time, y=inc[inc$trt=="Water"&inc$Compound == "Lip",]$d18O,1)
+findiplist(x=inc[inc$trt=="Water"&inc$Compound == "Lip",]$Time, y=predict(m.inc),1)
+findiplist(x=inc[inc$trt=="Limonite"&inc$Compound == "Lip",]$Time, y=predict(m.inc2),1)
+xbyy<-NULL
+xbyy<-sortedXyData("Time", "d18O", data=inc[inc$trt=="Water"&inc$Compound == "Lip",])
+xbyy2<-sortedXyData("Time", "d18O", data=inc[inc$trt=="Limonite"&inc$Compound == "Lip",])
+NLSstRtAsymptote(xbyy)
+NLSstRtAsymptote(xbyy2)
+asymptote<-NULL
+asymptote$Compound<-rep("Lip",2)
+asymptote$trt<-c("Water", "Limonite")
+asymptote$value<-c(37.01, 34.21)
+asymptote<-data.frame(asymptote)
+ggplot(inc, aes(y=d18O, x = Time/24, group = trt, shape =trt, linetype=trt))+geom_point(size = 2)+facet_wrap(~Compound, scale = "free", nrow = 3)+theme(legend.position = "bottom", legend.direction = "horizontal")+theme(axis.title.x=element_text(size = 24))+theme(axis.title.y=element_text(size = 24))+theme(axis.text.x=element_text(size = 16, angle = 80, vjust = .50))+theme(axis.text.y=element_text(size = 16))+theme(legend.text = element_text(size = 16), legend.title = element_text(size=24),strip.text=element_text(size = 16))+labs(y= expression('d'^18*'O'),x="Time (Days)")+geom_smooth(data=inc[inc$Compound=="Lip",],color = "black",formula=y~log(x))+theme_classic()+theme(legend.title = element_text())+scale_color_brewer(palette = "Set1")+geom_hline(data=inc, aes(yintercept=Standard))
+
+#+theme(legend.position = "none")
+inc[inc$Compound=="Hex",]$t.5<-(-1*inc[inc$Compound=="Hex",]$t.5)
+inc[inc$Compound=="Eic",]$t.5<-(-1*inc[inc$Compound=="Eic",]$t.5)
+
+ggplot(inc[inc$Compound=="Lip"&inc$Time>2300,], aes(t.5, x = factor(round(Time/24)), fill = trt,linetype=trt,group = ID))+theme_classic()+geom_boxplot(position = position_dodge(1))+theme(axis.title.x=element_text("Time (Days)"),axis.title.y=element_text(size = 18, family = "Book Antiqua"), axis.text.x=element_text(size = 16, angle = 80, vjust = .50), axis.text.y=element_text(size = 16, family = "Book Antiqua"),legend.text = element_text(size = 14, family="Book Antiqua"))+theme(legend.position = "bottom", axis.text.x = element_text(family="Book Antiqua"))+scale_fill_brewer(palette = "Greys")
+
+ggplot(inc[inc$Compound=="Lip"&inc$Time>2300,], aes(Fexch, x = factor(round(Time/24)), fill = trt, linetype=trt, group = ID))+theme_classic()+geom_boxplot(position = position_dodge(1))+theme(axis.title.x=element_text("Time (Days)"),axis.title.y=element_text(size = 18, family = "Book Antiqua"), axis.text.x=element_text(size = 16, angle = 80, vjust = .50), axis.text.y=element_text(size = 16, family = "Book Antiqua"),legend.text = element_text(size = 14, family="Book Antiqua"))+theme(legend.position = "bottom", axis.text.x = element_text(family="Book Antiqua"))+scale_fill_brewer(palette="Greys")
+
+round(inc$t.5,3)
+
+inc2<-NULL
+inc2$ID<-inc$ID
+inc2$d18O<-inc$d18O
+inc2<-as.data.frame(inc2)
+inc2<-(group.CI(d18O~ID,inc2))
+inc3<-merge(inc, inc2, by= c("ID"))
+inc.avg<-ddply(inc3, .(ID,trt,Compound, ID), summarise,
+               Time = mean(Time),
+               se18O = sd(d18O)/length(d18O),
+               d18O = mean(d18O.mean),
+               d18O.upper = mean(d18O.upper),
+               d18O.lower = mean(d18O.lower),
+               pctO = mean(pctO),
+               k = mean(k),
+               t.5 = mean(t.5), 
+               ff=mean(ff),
+               Standard=mean(Standard), 
+               Fexch = mean(Fexch))
+str(inc.avg)
+
+ggplot(inc.avg, aes(y=d18O, x = Time/24,shape=trt))+geom_point(size=2)+facet_wrap(~Compound, scale = "free", nrow=3)+geom_errorbar(aes(ymax=d18O.upper, ymin=d18O.lower), width =5)+theme(axis.title.x=element_text(size = 24))+theme(axis.title.y=element_text(size = 24))+theme(axis.text.x=element_text(size = 16, angle = 80, vjust = .50))+theme(axis.text.y=element_text(size = 16))+theme(legend.text = element_text(size = 16), legend.title = element_text(size=24),strip.text=element_text(size = 16))+labs(y= expression('d'^18*'O'),x="Time (Days)")+geom_smooth(data=inc[inc$Compound=="Lip",],se=F,formula=y~log(x), color = "Black", aes(linetype=trt))+theme_classic()+theme(legend.title = element_text())+scale_color_brewer(palette = "Set1")+geom_hline(data=inc.avg, aes(yintercept=Standard), linetype="dotdash")+geom_hline(data=asymptote, aes(linetype=trt,yintercept=value))+theme(legend.position = "bottom", legend.direction = "horizontal")
+
+ggplot(inc.avg[inc.avg$Time<2000&inc.avg$Compound=="Lip",], aes(y=d18O, x = Time/24, shape=trt))+geom_point(size=2.5)+geom_errorbar(aes(ymax=d18O.upper, ymin=d18O.lower),lwd=1, width =0.3)+theme(axis.title.x=element_text(size = 24))+theme(axis.title.y=element_text(size = 24))+theme(axis.text.x=element_text(size = 16, angle = 80, vjust = .50))+theme(axis.text.y=element_text(size = 16))+labs(y= expression(''),x="Time (Days)")+theme_classic()+scale_color_brewer(palette = "Set1")+theme(legend.position = "none") 
++geom_line(data=inc[inc$Compound == "Lip"&inc$trt == "Water"&inc$Time<2000,], aes(x=Time/24, y=predict(m.inc)[1:20]))
+
+ggplot(inc.avg[inc.avg$Time == "182.3",], aes(y=k, x = ID))+geom_boxplot()
+inc.avg[inc.avg$Time =="182.3"|inc.avg$Time == "0.01",]
+
+data.frame(cols, pvals, t)
+t.test(t.5~trt, data = inc[inc$Compound=="Lip"&inc$Time>3000,])
+str(test)
+summary(lm(d18O~trt, data = inc[inc$Compound=="Lip"&inc$Time==3833,]))
+
+s.m<-lm(d18O~trt, data = inc[inc$Compound=="Eic"&inc$Time==3833,])
+anova(s.m)
+tukey<-HSD.test(s.m, trt = "trt", 6, 0.0346, alpha = .05, group = TRUE)
+tukey
+LSD<-LSD.test(s.m, trt = "ID", MSerror = 165.61, DFerror = 18, group = TRUE, alpha = 0.05)
+LSD
+write.csv(inc.avg, "/Users/tobymaxwell/Desktop/inc.csv")
+
+test.18<-merge(celdata,soillit, by="SiteID")
+
+test.18O<-ddply(celdata, .(Species, Transect, Subsubsite), summarise,
+                d18Ocel = mean(d18Ocel))
+test.18O$merge<-paste0(test.18O$Transect, test.18O$Subsubsite)
+test.18Olit<-ddply(soillit, .(Transect, Subsubsite), summarise,
+                d18Olit = mean(d18Olit))
+test.18Olit$merge<-paste0(test.18Olit$Transect, test.18Olit$Subsubsite)
+
+test.merge<-merge(test.18Olit, test.18O, by = "merge")
+plot(d18Ocel~d18Olit, test.merge)

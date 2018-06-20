@@ -1,0 +1,105 @@
+setwd("/Users/Maxwell/Google Drive File Stream/My Drive/documents/Grad/Research/Manuscripts/Lipids/R/Lipids/Lipids/")
+
+inc<-read.csv("data.2.csv")
+inc$ID<-paste0(inc$Compound, inc$Time, inc$trt)
+inc$ff<-inc$atmpct18O/inc$Stdatmpct
+str(inc)
+inc<-na.omit(inc)
+str(inc)
+library(ggplot2)
+plot(d18O~Time, inc[inc$trt=="Water"&inc$Compound == "Lip",])
+lines(inc[inc$trt=="Water"&inc$Compound == "Lip",]$Time,predict(m.inc))
+tail(inc)
+str(inc)
+inc$Time[inc$Time==0]<-0.01
+anova(lm(Dif~Compound:trt, inc))
+library(minpack.lm)
+inc$Compound<-factor(inc$Compound, levels = c("Lip", "Hex", "Eic"))
+model<-formula(d18O~a*log(Time)+b)
+m.inc<-nlsLM(model,
+           data = inc[inc$Compound == "Lip"&inc$trt == "Water",],
+           start=list(a=1.3,b=16),
+           control = list(maxiter = 10000000, minFactor=.00001),
+           trace = TRUE) 
+m.inc2<-nlsLM(model,
+             data = inc[inc$Compound == "Lip"&inc$trt == "Limonite",],
+             start=list(a=1.3,b=16),
+             control = list(maxiter = 10000000, minFactor=.00001),
+             trace = TRUE) 
+inc$lipwaterline<-1.3246*log(inc$Time)+16.781
+inc.loess<-loess(d18O~Time, inc[inc$trt=="water"&inc$Compound == "Lip",], family = "sym")
+plot(predict(m.inc)~inc[inc$trt=="water"&inc$Compound == "Lip",]$Time)
+plot(d18O~Time, inc[inc$trt=="water"&inc$Compound == "Lip",])
+library(inflection)
+findiplist(x=inc[inc$trt=="soil"&inc$Compound == "Lip",]$Time, y=inc[inc$trt=="soil"&inc$Compound == "Lip",]$d18O,1)
+findiplist(x=inc[inc$trt=="water"&inc$Compound == "Lip",]$Time, y=inc[inc$trt=="water"&inc$Compound == "Lip",]$d18O,1)
+findiplist(x=inc[inc$trt=="water"&inc$Compound == "Lip",]$Time, y=predict(m.inc),1)
+findiplist(x=inc[inc$trt=="water"&inc$Compound == "Lip",]$Time, y=predict(m.inc2),1)
+xbyy<-NULL
+xbyy<-sortedXyData("Time", "d18O", data=inc[inc$trt=="water"&inc$Compound == "Lip",])
+xbyy2<-sortedXyData("Time", "d18O", data=inc[inc$trt=="soil"&inc$Compound == "Lip",])
+NLSstRtAsymptote(xbyy)
+NLSstRtAsymptote(xbyy2)
+
+ggplot(inc, aes(y=d18O, x = Time/24, group = trt, color = trt, shape = trt))+geom_point(size = 3)+facet_wrap(~Compound, scale = "free", nrow = 3)+theme(legend.position = "bottom", legend.direction = "horizontal")+theme(axis.title.x=element_text(size = 24))+theme(axis.title.y=element_text(size = 24))+theme(axis.text.x=element_text(size = 16, angle = 80, vjust = .50))+theme(axis.text.y=element_text(size = 16))+theme(legend.text = element_text(size = 16), legend.title = element_text(size=24),strip.text=element_text(size = 16))+labs(y= expression('δ'^18*'O (‰)'),x="Time (Days)")+geom_smooth(formula=y~log(x))+theme_classic()+theme(legend.title = element_text())+scale_color_brewer(palette = "Set1")+geom_hline(data=inc, aes(yintercept=Standard))
+
+#+theme(legend.position = "none")
+inc[inc$Compound=="Hex",]$t.5<-(-1*inc[inc$Compound=="Hex",]$t.5)
+inc[inc$Compound=="Eic",]$t.5<-(-1*inc[inc$Compound=="Eic",]$t.5)
+ggplot(inc[inc$Time == 3833,], aes(t.5, x = ID, color = trt, group = ID))+theme_classic()+geom_boxplot(position = position_dodge(1))+facet_wrap(~Compound, scale = "free", nrow=1)+theme(legend.position = "bottom", legend.direction = "horizontal", axis.title.x=element_text(size = 24),axis.title.y=element_text(size = 24), axis.text.x=element_text(size = 16, angle = 80, vjust = .50), axis.text.y=element_text(size = 16),legend.text = element_text(size = 16), legend.title = element_text(size=24), strip.text=element_text(size = 16))+labs(y= expression('Exchange Half Time (Years)'),x="")+theme(legend.position = "bottom")+theme(axis.text.x = element_blank())+scale_color_brewer(palette = "Set1")
+round(inc$t.5,3)
+library(plyr)
+library(Rmisc)
+inc2<-NULL
+inc2$ID<-inc$ID
+inc2$d18O<-inc$d18O
+inc2<-as.data.frame(inc2)
+inc2<-(group.CI(d18O~ID,inc2))
+inc3<-merge(inc, inc2, by= c("ID"))
+library(plyr)
+inc.avg<-ddply(inc3, .(ID,trt,Compound), summarise,
+               Time = mean(Time),
+               se18O = sd(d18O)/length(d18O),
+               d18O = mean(d18O.mean),
+               d18O.upper = mean(d18O.upper),
+               d18O.lower = mean(d18O.lower),
+               pctO = mean(pctO),
+               k = mean(k),
+               t.5 = mean(t.5), 
+               ff=mean(ff))
+str(inc.avg)
+ggplot(inc.avg[inc.avg$Compound=="Lip",], aes(y=d18O, x = Time/24, color = trt))+geom_point()+facet_wrap(~Compound, scale = "free", nrow=3)+geom_errorbar(aes(ymax=d18O.upper, ymin=d18O.lower), width =5)+theme(axis.title.x=element_text(size = 24))+theme(axis.title.y=element_text(size = 24))+theme(axis.text.x=element_text(size = 16, angle = 80, vjust = .50))+theme(axis.text.y=element_text(size = 16))+theme(legend.text = element_text(size = 16), legend.title = element_text(size=24),strip.text=element_text(size = 16))+labs(y= expression('δ'^18*'O (‰)'),x="Time (Days)")+geom_smooth(data=inc[inc$Compound=="Lip",],formula=y~log(x))+theme_classic()+theme(legend.title = element_text())+scale_color_brewer(palette = "Set1")+geom_hline(data=inc[inc$Compound=="Lip",], aes(yintercept=Standard))+theme(legend.position = "bottom", legend.direction = "horizontal")
+
+ggplot(inc.avg[inc.avg$Time == "182.3",], aes(y=k, x = ID))+geom_boxplot()
+inc.avg[inc.avg$Time =="182.3"|inc.avg$Time == "0.01",]
+
+data.frame(cols, pvals, t)
+t.test(d18O~Time, data = inc[inc$trt=="Limonite"&inc$Compound=="Lip"&inc$Time>2000,])
+str(test)
+summary(lm(d18O~trt, data = inc[inc$Compound=="Lip"&inc$Time==3833,]))
+library(agricolae)
+s.m<-lm(d18O~trt, data = inc[inc$Compound=="Eic"&inc$Time==3833,])
+anova(s.m)
+tukey<-HSD.test(s.m, trt = "trt", 6, 0.0346, alpha = .05, group = TRUE)
+tukey
+LSD<-LSD.test(s.m, trt = "ID", MSerror = 165.61, DFerror = 18, group = TRUE, alpha = 0.05)
+LSD
+write.csv(inc.avg, "/Users/tobymaxwell/Desktop/inc.csv")
+
+test.18<-merge(celdata,soillit, by="SiteID")
+
+test.18O<-ddply(celdata, .(Species, Transect, Subsubsite), summarise,
+                d18Ocel = mean(d18Ocel))
+test.18O$merge<-paste0(test.18O$Transect, test.18O$Subsubsite)
+test.18Olit<-ddply(soillit, .(Transect, Subsubsite), summarise,
+                d18Olit = mean(d18Olit))
+test.18Olit$merge<-paste0(test.18Olit$Transect, test.18Olit$Subsubsite)
+
+test.merge<-merge(test.18Olit, test.18O, by = "merge")
+plot(d18Ocel~d18Olit, test.merge)
+
+library(rJava)
+
+noah<-ddply(celdata, .(SiteID), summarise,
+            sdc=sd(pctCsoil))
+noah
