@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\n---\n<img src=\"images/field.jpg\" style=\"width:150%; border:1px solid; margin-right: 20px\" align=\"center\">  \n\nI am a biogeochemist managing Lucas Silva's [Soil Plant Atmosphere Lab](https://www.soilplantatmosphere.com) in the department of Ecology and Evolution at the University of Oregon.  \nCurrently a post doctoral scholar, my work seeks to evaluate the impacts of climate change across the landscape by merging classical metrics of soil quality and fertility, with trait based and physiological indicators of plant response to stress. I specialize in applying statistical models and geospatial analysis to connect site level information with remotely sensed and modeled data. By doing so it is possible to use what is observed in local processes to improve prediction of landscape responses to disturbance. \n\n\n",
+    "created" : 1529520267135.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3378405360",
+    "id" : "D9600D52",
+    "lastKnownWriteTime" : 1529520076,
+    "last_content_update" : 1529520076,
+    "path" : "~/Documents/github/tobymaxwell.github.io/index.Rmd",
+    "project_path" : "index.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

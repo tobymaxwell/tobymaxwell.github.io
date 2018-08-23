@@ -20,8 +20,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -31,12 +31,10 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
 }
 </script>
 
@@ -250,8 +248,9 @@ $(document).ready(function () {
 <h4>Example below</h4>
 <p>Say I want to know the effect of a night out on the town on how many minutes after 9 someone shows up to work. I’ll measure minutes after 12 pm they get home, and minutes after 9 they show up to work. My null hypothesis is that staying out has no relatioship to the time people show up to work. I estimate that every 60 minutes past 12 someone is out leads to 15 minutes of tardyness. Is this a small or large effect size? The standard seems to have been set by <a href="http://www.utstat.toronto.edu/~brunner/oldclass/378f16/readings/CohenPower.pdf">Cohen 1988</a>, where recommendations are summarised for detecting differences between groups for many types of analyses. A summary is available online <a href="https://www.statmethods.net/stats/power.html">here</a>.</p>
 <p>Generally scientists have settled on accepting 5% type I error rates. Type II error is much less discussed, commonly 20% error rates are used for conservative estimates.</p>
-<pre class="r"><code>library(pwr)
-#need to select appropriate function for your design. I&#39;m just going to measure everyone in my hallway, so there&#39;s no grouping, and I&#39;ll use a correlation test
+<pre class="r"><code>library(pwr)</code></pre>
+<pre><code>## Warning: package &#39;pwr&#39; was built under R version 3.4.3</code></pre>
+<pre class="r"><code>#need to select appropriate function for your design. I&#39;m just going to measure everyone in my hallway, so there&#39;s no grouping, and I&#39;ll use a correlation test
 ##pwr.r.test(n = , r = , sig.level = , power = )
 ns&lt;-NULL
 test&lt;-NULL
