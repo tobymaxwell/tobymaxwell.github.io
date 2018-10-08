@@ -94,12 +94,14 @@ kable(settlingtime, caption="Settling Times for Sand and Clay Sampling by Temper
 
 6. Pipette 2.5 mL from each vial 2.5 mL below the surface of the solution for each measurement of sand and clay. Dispense that in preweighed tins, dry in an oven until water is removed.
 7. Remove dried tins, allow to cool, and record dry weight to nearest 0.0001 grams.  
-
+  
 ####Calculations
 
 ```{r}
-#example calculation from some of my data
-sand<-function(dryweight,tinweight,blank, originalsoiladded){100-(((((dryweight-tinweight)-blank)*40/2.5)/originalsoiladded)*100)}
+#example calculation from some of my data using R.
+sand<-function(dryweight,tinweight,blank, originalsoiladded){100-(((((dryweight-tinweight)-blank)*40/2.5)/originalsoiladded)*100)} #generate a function for inputting data.
+
+#data below for inputting into function
 a<-1.1561
 b<-1.0889
 c<-0.0133
@@ -112,4 +114,7 @@ f<-0.9206
 c<-0.0133
 d<-5.6549
 clay(e,f,c,d)
+
+silt<-(100-sand(a,b,c,d)-clay(e,f,c,d))
+print(silt)
 ```

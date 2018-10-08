@@ -341,8 +341,10 @@ silt&lt;-pctsilt(sand, clay)</code></pre>
 </div>
 <div id="calculations" class="section level4">
 <h4>Calculations</h4>
-<pre class="r"><code>#example calculation from some of my data
-sand&lt;-function(dryweight,tinweight,blank, originalsoiladded){100-(((((dryweight-tinweight)-blank)*40/2.5)/originalsoiladded)*100)}
+<pre class="r"><code>#example calculation from some of my data using R.
+sand&lt;-function(dryweight,tinweight,blank, originalsoiladded){100-(((((dryweight-tinweight)-blank)*40/2.5)/originalsoiladded)*100)} #generate a function for inputting data.
+
+#data below for inputting into function
 a&lt;-1.1561
 b&lt;-1.0889
 c&lt;-0.0133
@@ -356,6 +358,9 @@ c&lt;-0.0133
 d&lt;-5.6549
 clay(e,f,c,d)</code></pre>
 <pre><code>## [1] 1.556173</code></pre>
+<pre class="r"><code>silt&lt;-(100-sand(a,b,c,d)-clay(e,f,c,d))
+print(silt)</code></pre>
+<pre><code>## [1] 13.69432</code></pre>
 </div>
 </div>
 
