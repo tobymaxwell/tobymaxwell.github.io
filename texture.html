@@ -336,8 +336,11 @@ silt&lt;-pctsilt(sand, clay)</code></pre>
 </table>
 <ol start="6" style="list-style-type: decimal">
 <li>Pipette 2.5 mL from each vial 2.5 mL below the surface of the solution for each measurement of sand and clay. Dispense that in preweighed tins, dry in an oven until water is removed.</li>
-<li>Removed dried tins, allow to cool, and record dry weight to nearest 0.0001 grams. ####Calculations</li>
+<li>Remove dried tins, allow to cool, and record dry weight to nearest 0.0001 grams.</li>
 </ol>
+</div>
+<div id="calculations" class="section level4">
+<h4>Calculations</h4>
 <pre class="r"><code>#example calculation from some of my data
 sand&lt;-function(dryweight,tinweight,blank, originalsoiladded){100-(((((dryweight-tinweight)-blank)*40/2.5)/originalsoiladded)*100)}
 a&lt;-1.1561

@@ -93,7 +93,8 @@ kable(settlingtime, caption="Settling Times for Sand and Clay Sampling by Temper
 ```
 
 6. Pipette 2.5 mL from each vial 2.5 mL below the surface of the solution for each measurement of sand and clay. Dispense that in preweighed tins, dry in an oven until water is removed.
-7. Removed dried tins, allow to cool, and record dry weight to nearest 0.0001 grams.
+7. Remove dried tins, allow to cool, and record dry weight to nearest 0.0001 grams.  
+
 ####Calculations
 
 ```{r}
