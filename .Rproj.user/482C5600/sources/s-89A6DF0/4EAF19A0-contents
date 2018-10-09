@@ -15,7 +15,7 @@ hydrometer
 ####Procedure
 1. **Lightly** crush soils to separate aggregates and sieve to 2 mm. Pick out twigs, grass roots etc.  
 
-2. Weigh 40 grams (+/- 0.5) of air dry <2mm soil into a bottle. Add 50 mL sodium hexametaphosphate and 100 mL water to that bottle. Shake on a mechanical shaker overnight.  
+2. Weigh 40 grams (+/- 0.5) of air dry <2mm soil into a bottle. Add 50 mL sodium hexametaphosphate solution and 100 mL water to that bottle. Shake on a mechanical shaker overnight.  
 
 3. Add soil solution to graduated cylinder. This must be a quatitative transfer, since the calculations rely on the original weight. You can use water and a squirt bottle to do this, as it will all end up in the graduated cylinder and the volume can be accounted for, by filling each cylinder to a full 1000 mL.
 
@@ -66,13 +66,13 @@ x = particle diameer
 n = fluid viscosity
 
 ####Materials
-50 mL centrifuge tubes
-weighing tins
-scale (a standard analytical scale that measures to 0.0001 g)
-50 mL dispensette
-adjustable 50 mL pipette with tips and stopper (can make your own)
-reciprocating shaker
-0.5% Sodium Hexametaphosphate - 5 g/L
+50 mL centrifuge tubes  
+Aluminum weigh boats 
+Scale (a standard analytical scale that measures to 0.0001 g)  
+50 mL dispensette   
+adjustable 50 mL pipette with tips and stopper (can make your own)  
+reciprocating shaker  
+0.5% Sodium Hexametaphosphate - 5 g/L  
 
 ####Procedure
 1. weigh out 5 grams soil air dried and sieved to 2 mm into centrifuge tube.
@@ -92,7 +92,7 @@ library(knitr)
 kable(settlingtime, caption="Settling Times for Sand and Clay Sampling by Temperature")
 ```
 
-6. Pipette 2.5 mL from each vial 2.5 mL below the surface of the solution for each measurement of sand and clay. Dispense that in preweighed tins, dry in an oven until water is removed.
+6. Pipette 2.5 mL from each vial 2.5 mL below the surface of the solution for each measurement of sand and clay. Dispense that in preweighed tins, dry in an oven until water is removed.  
 7. Remove dried tins, allow to cool, and record dry weight to nearest 0.0001 grams.  
   
 ####Calculations
