@@ -86,7 +86,7 @@ settlingtime<-NULL
 settlingtime$Sandmins<-c(12.3,11.7,11.1,10.6,10.2,9.7)
 settlingtime$Claymins<-c(128.1,121.9,116.1,110.8,105.8,101.2)
 settlingtime<-as.data.frame(settlingtime)
-colnames(settlingtime)<-c("Sand (minutes)", "Clay (minutes)")
+colnames(settlingtime)<-c("Sand (seconds)", "Clay (minutes)")
 rownames(settlingtime)<-c("16&deg;C","18&deg;C","20&deg;C","22&deg;C","24&deg;C","26&deg;C")
 library(knitr)
 kable(settlingtime, caption="Settling Times for Sand and Clay Sampling by Temperature")
