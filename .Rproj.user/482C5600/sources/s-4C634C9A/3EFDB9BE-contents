@@ -4,9 +4,5 @@
 
 ####Please find my abbreviated resume below, a full CV is available [here](files/CV.pdf).  
 
-<img src="files/resume.pdf" alt="some text"  width="4200" height="4200">
-
-\begin{center} <br>
-\includegraphics[width=8in]{files/resume.pdf} <br>
-\end{center}
+<img src="files/resume.pdf"  width="4200" height="4200">
 
