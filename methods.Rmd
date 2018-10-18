@@ -13,14 +13,11 @@ It is important to think about where variability lies in an experiment and sampl
 
 Then, comes design! I certainly can't provide a comprehensive list, but a few common field designs are mentioned in brief [here](design.html)
 
-#####**Soil Sampling**
-As with any sampling there is no one way to sample soil, but as it is notoriously heterogenous, methods must be refined to a research question to avoid extraneous sampling. Some tips for how to start thinking about this are included [here](ssampling.html). Also you should pick up a free copy of the USDA NRCS [Field Book for Describing and Sampling Soils](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/research/guide/?cid=nrcs142p2_054184).
+#####**Soil/Plant Sampling**
+As with any sampling there is no one way to sample soil and plants to observe interactive effects, but as soil is notoriously heterogenous, and you can only take a small number of plant samples to the lab, methods must be refined to a research question to avoid extraneous sampling. Some tips for how to start thinking about this are included [here](ssampling.html). Also you should pick up a free copy of the USDA NRCS [Field Book for Describing and Sampling Soils](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/research/guide/?cid=nrcs142p2_054184).
 
 #####**Soil Texture Analysis**
 There are many reasons people measure soil texture. Some basic interests include links to hydrologic properties within and between layers, i.e. drainage, storage, and their kinetics. Also, carbon and nutrient storage and cycling, and microbial activity are all interdependent and often relate to the ability of a soil to store available nutrients and water. There is a 'goldilocks' zone where there is enough surface area to store nutrients and water, while still allowing some active movement and cylcing, rather than immobilizing soil water and nutrient flows. There are many methods for measuring soil texture, most common are hydrometer and pipette methods described [here](texture.html). Additionally particle size analyzers are commercially available which use [laser diffraction](https://en.wikipedia.org/wiki/Laser_diffraction_analysis).
-
-#####**Soil Iron and Aluminum Mineralogy**
-Important for mineralogical analysis, and selective dissolution of different mineral forms of iron and aluminum. This method is growing in use and popularity for evaluating soil carbon storage potentia because of recently published work that suggests soil mineral characteristics may better predict carbon storage/potential than more classic concepts (i.e. texture). Methods [here](iron.html).
 
 #####**Total Carbon and Nitrogen Analysis**
 Total carbon and nitrogen analysis are the 'hammer' of a soil scientist's tool kit. This is most commonly measured using an elemental analyzer which quantitatively combusts a sample, generating CO~2~ and N~2~ which can then be measured. Investigations of carbon content are especially important for soils as organic carbon is important for agriculture (water holding capacity, infiltration, microbial activity) and in ecology as a tool quantifying those same things in the context of ecosystem services and the impacts of natural processes.
@@ -28,6 +25,12 @@ Total carbon and nitrogen analysis are the 'hammer' of a soil scientist's tool k
 In addition, carbon and nitrogen together tell the most basic information about relative nitrogen limitation in a system. Whether in leaf, litter, or soil, C:N ratios are an important indicator of nitrogen status of a plant, or ecosystem. A rule of thumb is that if C:N>30 then the system is nitrogen depleted and microbial activity will tend to 'immobilize' nitrogen via increases in microbial biomass, less than 30 and nitrogen may be released by microbial mineralization of organic matter. Simply put, if microbes are limited, they stock up on N, if they have excess, they release it form the system. 
 
 The methods of analysis are going to be different for every lab, but I have summarized the preparation steps [here](CN.html)
+
+#####**Leaf Area Index**
+Leaf Area Index is an efficient way to measure the productivity of a site. It has been shown to relate to NDVI, evapotranspiration, and water use efficiency. An full hemispherical fisheye lens is required, but after that, you can get all the data you want! A description of how to take pictures in the field is [here](lai.html). I will not get into image processing, because there are liekly many options for that process. I have used free software that is available for processing images [from the cary institute](http://www.caryinstitute.org/science-program/our-scientists/dr-charles-d-canham/gap-light-analyzer-gla). This has worked well for me, and has excellent supporting documentation, and peer reviewed, published validation. 
+
+#####**Soil Iron and Aluminum Mineralogy**
+Important for mineralogical analysis, and selective dissolution of different mineral forms of iron and aluminum. This method is growing in use and popularity for evaluating soil carbon storage potentia because of recently published work that suggests soil mineral characteristics may better predict carbon storage/potential than more classic concepts (i.e. texture). Methods [here](iron.html).
 
 #####**Soil and litter Bulk Density**
 Bulk density of soil and litter is very simple to measure and adds a significant component to stoichiometric analysis of a system. This measurement can convert total carbon and nitrogen data, to total carbon per unit area, increasing the scalability and improving the value of total carbon measurements.
@@ -39,24 +42,20 @@ For litter, some kind of square frame works best which can be placed on the grou
 #####**Soil pH**
 Similar to texture, pH is a soil property that is often used as a very general indicator of soil processes, as it corresponds to many things including microbial community, weathering, fertility. It is quite easy to measure, highly studied, and commonly varies across natural gradients (e.g. climate), so it can provide useful insight into how soils vary over space. pH is also critical to determining the solubility of organic matter, as well as base cations in solution impacting many soil processes. Some things to consider when measuring pH are drescribed [here](ph.html)
 
-#####**Leaf Area Index**
-Leaf Area Index is an efficient way to measure the productivity of a site. It has been shown to relate to NDVI, evapotranspiration, and water use efficiency. An full hemispherical fisheye lens is required, but after that, you can get all the data you want! A description of how to take pictures in the field is [here](lai.html). I will not get into image processing, because there are liekly many options for that process. I have used free software that is available for processing images [from the cary institute](http://www.caryinstitute.org/science-program/our-scientists/dr-charles-d-canham/gap-light-analyzer-gla). This has worked well for me, and has excellent supporting documentation, and peer reviewed, published validation. 
 
 ###Coming soon...
+
+#####MODIS/TERRA bulk extraction of data in R
+
+#####Cellulose Extraction from plant tissue
+
+#####Specific Leaf Area Measurement
+
+#####Soil/plant Phosphorous Analysis
 
 #####Soil Avalable Water Capacity
 
 #####Soil Nitrate and Ammonium Analysis
-
-#####Soil/plant Phosphorous Analysis
-
-#####Soil Lipid Fractionations
-
-#####Cellulose Extraction from plant tissue
-
-#####Accessing SSURGO Data in R
-
-#####MODIS/TERRA bulk extraction of data in R
 
 #####Basic use of Google Earth Engine for Time Series Analysis
 
