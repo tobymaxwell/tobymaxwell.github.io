@@ -22,7 +22,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -92,6 +93,9 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -109,7 +113,6 @@ body {
   padding-top: 69px;
   margin-top: -69px;
 }
-
 .section h2 {
   padding-top: 69px;
   margin-top: -69px;
@@ -129,6 +132,43 @@ body {
 .section h6 {
   padding-top: 69px;
   margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -150,18 +190,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -189,7 +288,7 @@ $(document).ready(function () {
   <a href="pubs.html">Publications</a>
 </li>
 <li>
-  <a href="cv.html">CV</a>
+  <a href="https://tobymaxwell.github.io/files/CV.pdf">CV</a>
 </li>
 <li>
   <a href="methods.html">Methods</a>
@@ -234,18 +333,12 @@ $(document).ready(function () {
 </div>
 
 
-<div id="selective-dissolution-of-soil-iron-for-mineralogical-and-microbiological-evaluation" class="section level5">
-<h5>Selective dissolution of soil iron for mineralogical and microbiological evaluation</h5>
+<p>#####Selective dissolution of soil iron for mineralogical and microbiological evaluation</p>
 <p>These reagents extract different fractions of iron as indicated, but no extractant is perfect, and depending on the soil there is some overlap, i.e. a small amount of another iron fraction may be extracted at the same time. Further, every soil may require calibration as the various mineral fractions can vary by orders of magniude among soils. As a result, small pilot experiments should be done prior to extraction a whole sample set, to ensure accuracy and also save time.</p>
 <p>But how to do those pilots? I’ll provide some numbers to start with here, and if I were to calibrate for a new soil, I’d extract with maybe +/- 50% of the reactants. Then see if the results come out the same, and you can adjust accordingly, i.e. if 50% more gives a different result, you’ll need to add even more until the result plateaus, so you know you have run a reaction to completion. You will also save time in the end by doing this because in the end your UV-VIS analysis may show that you need to adjust the expected concentrations to get a good number.</p>
-</div>
-<div id="blanks" class="section level5">
-<h5>Blanks</h5>
-<p>Just a quick note on blanks. Procedures like this can get contaminated by any number of things no matter how clean you try to be, of course it is necessary to clean glassware and reaction vials/tubes well, however, to account for any contaminations, or leaching, you want to run <strong>method blanks</strong>. These are treated exactly as a sample, except no sample is added. At the end, whatever concentration is ‘measured’ for iron in this extract is added or subtracted from the final value. This sets the Zero value.</p>
+<p>#####Blanks Just a quick note on blanks. Procedures like this can get contaminated by any number of things no matter how clean you try to be, of course it is necessary to clean glassware and reaction vials/tubes well, however, to account for any contaminations, or leaching, you want to run <strong>method blanks</strong>. These are treated exactly as a sample, except no sample is added. At the end, whatever concentration is ‘measured’ for iron in this extract is added or subtracted from the final value. This sets the Zero value.</p>
 <p>In addition to a method blank for the extractants, you will also need a blank for the ferrozine solution here. So by the end youll have 3 or 4 method blanks, and then at the analysis phase 3 or 4 reagent blanks simply analyzing water rather than extractant. This can significantly shift the baseline values of an experiment and must be done.</p>
-</div>
-<div id="extraction-descriptions" class="section level5">
-<h5>Extraction Descriptions</h5>
+<p>#####Extraction Descriptions</p>
 <ol style="list-style-type: decimal">
 <li>Pyrophosphate extraction – removes iron present in organic-metal complexes (complexed with soil organic matter).<br />
 </li>
@@ -254,9 +347,7 @@ $(document).ready(function () {
 <li>Dilute acid – a measure of the Fe(II) produced during reduction of Fe(III)</li>
 <li>Hydroxylamine – selective extractant for microbially reducible Fe(III)</li>
 </ol>
-</div>
-<div id="extraction-procedures" class="section level5">
-<h5>Extraction Procedures</h5>
+<p>#####Extraction Procedures</p>
 <p>Extractions can be done in 50 mL centrifuge tubes, convenient for shaking, reacting, and settling.</p>
 <ol style="list-style-type: decimal">
 <li><p>Pyrophosphate: Extract 0.5 g soil for 16 hours with 45 ml 0.1 M tetrasodium pyrophosphate. Centrifuge at 15600 x G for 30 minutes or until fine colloids are removed.</p></li>
@@ -265,10 +356,7 @@ $(document).ready(function () {
 <li><p>Dilute acid: usually 1 g soil plus 50 ml 0.5 M HCl. Lovley and Phillips 1986. Appl Env Microb 51:683</p></li>
 <li><p>Hydroxylamine: to 1 g soil add 50 ml 0.25 M hydroxylamine hydrochloride in 0.25 M HCl (per liter: 17.4 g hydroxylamine hydrochloride and 20.8 ml concentrated HCl). Shake for one hour. Lovley and Phillips 1987. Appl Env Microb 53:1536.</p></li>
 </ol>
-</div>
-<div id="making-standard-solutions" class="section level5">
-<h5>Making Standard Solutions</h5>
-<p>Ferrozine Solution: Add 3 grams Ammonium Acetate and 1 g ferrozine to 50 mL water in a 100 mL volumetric flask. Dilute to 100 mL after dissolved. Add 0.2 g ascorbic acid just before analysis. Ferrozine Blank: Same as above, just without ferrozine.</p>
+<p>#####Making Standard Solutions Ferrozine Solution: Add 3 grams Ammonium Acetate and 1 g ferrozine to 50 mL water in a 100 mL volumetric flask. Dilute to 100 mL after dissolved. Add 0.2 g ascorbic acid just before analysis. Ferrozine Blank: Same as above, just without ferrozine.</p>
 <p>Standards: Ferrous Ammonium Sulfate Hexahydrate (FeAmSu)can be used as a standard. Fe(NH4)2(SO4)2 6H2O, FW: 392.15g/mol, Fe is 55.8g/mol. Easiest to make a stock solution and then standards as appropriate. For me, the range of 0.2 mg/L-10mg/L covered all of my samples nicely. To make a 274 mg/L stock solution add 1.96 grams of FeAmSu to 500 mL water in a 1 L volumetric flask. Add 20 mL 6M HCl, and then dilute to 1 L. Dilute to necessary quantities, and before anything calculate how much you will need so that you are using only 1 batch of standard and ferrozine solution per round of analysis (this just makes it easier, fewer blanks are involved).</p>
 <pre class="r"><code>#remember M1V1=M2V2? Just proportional dilutions.
 ##Here&#39;s how much of that 274 ppm stock is required to make 100 mL of a 10 ppm standard, can repeat for other standrards.
@@ -278,15 +366,8 @@ M2&lt;-10
 V1&lt;-function(M1, V2, M2){(M2*V2)/M1}
 V1(M1,V2,M2)</code></pre>
 <pre><code>## [1] 3.649635</code></pre>
-</div>
-<div id="determination-of-iron-in-oxalate-acid-or-hydroxylamine-extracts" class="section level5">
-<h5>Determination of iron in oxalate, acid, or hydroxylamine extracts</h5>
-<p>Prepare the reagent (from Dominik and Kaupenjohann 2000. Talanta 51:701): Into cuvets, pipet 0.2 ml sample or standard, then add 0.8 ml reagent. Cap, mix, and wait until color is fully developed. This is usually within an hour, but it is good to confirm. The color is stable until the next day. Read absorbance at 565 nm. The working range is about 0.2 to 10 mg/L.</p>
-</div>
-<div id="determination-of-iron-in-pyrophosphate-and-dithionite-extracts" class="section level4">
-<h4>Determination of iron in pyrophosphate and dithionite extracts</h4>
-<p>Pipet 0.2 ml sample or standard into cuvettes. Add 0.04 ml 6 M HCl to neutralize. If the samples have been diluted with water, add proportionally less HCl. Add 0.04 ml water to the standards if they are not made in a pyrophosphate matrix; if they are made in pyrophosphate, add 0.04 ml HCl. Then add 0.8 ml reagent (same as above analysis), mix, and read absorbance at 565 nm once color is fully developed. Do not wait until the next day – some iron may begin to precipitate. If the samples are heavily colored, prepare a corresponding correction sample for each sample by using a reagent without ferrozine; subtract the absorbance from this sample (the background absorbance) from the absorbance of the samples with iron color developed.</p>
-</div>
+<p>#####Determination of iron in oxalate, acid, or hydroxylamine extracts Prepare the reagent (from Dominik and Kaupenjohann 2000. Talanta 51:701): Into cuvets, pipet 0.2 ml sample or standard, then add 0.8 ml reagent. Cap, mix, and wait until color is fully developed. This is usually within an hour, but it is good to confirm. The color is stable until the next day. Read absorbance at 565 nm. The working range is about 0.2 to 10 mg/L.</p>
+<p>####Determination of iron in pyrophosphate and dithionite extracts Pipet 0.2 ml sample or standard into cuvettes. Add 0.04 ml 6 M HCl to neutralize. If the samples have been diluted with water, add proportionally less HCl. Add 0.04 ml water to the standards if they are not made in a pyrophosphate matrix; if they are made in pyrophosphate, add 0.04 ml HCl. Then add 0.8 ml reagent (same as above analysis), mix, and read absorbance at 565 nm once color is fully developed. Do not wait until the next day – some iron may begin to precipitate. If the samples are heavily colored, prepare a corresponding correction sample for each sample by using a reagent without ferrozine; subtract the absorbance from this sample (the background absorbance) from the absorbance of the samples with iron color developed.</p>
 
 
 

@@ -22,7 +22,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -92,6 +93,9 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -109,7 +113,6 @@ body {
   padding-top: 69px;
   margin-top: -69px;
 }
-
 .section h2 {
   padding-top: 69px;
   margin-top: -69px;
@@ -129,6 +132,43 @@ body {
 .section h6 {
   padding-top: 69px;
   margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -150,18 +190,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -189,7 +288,7 @@ $(document).ready(function () {
   <a href="pubs.html">Publications</a>
 </li>
 <li>
-  <a href="cv.html">CV</a>
+  <a href="https://tobymaxwell.github.io/files/CV.pdf">CV</a>
 </li>
 <li>
   <a href="methods.html">Methods</a>
@@ -234,37 +333,19 @@ $(document).ready(function () {
 </div>
 
 
-<div id="what-is-ph" class="section level3">
-<h3>What is pH?</h3>
+<p>###What is pH?</p>
 <p>The basic equation for pH is below. It is a measure of the concentration of hydrogen ions in solution (often referred to as ‘protons’ since they carry one proton). What does this mean? Well, hydrogen atoms are one of the more readily transferred atoms between any chemical constituent of the soil. Their mobility often determines solubility and reactivity in water as the loss of a hydrogen atoms can lead to ionization of a compound. Thus the basic equation for understanding pH is below. <span class="math display">\[pH=-log_{10}[H^{+}]\]</span></p>
 <p>A more nuanced equation helps understand what controls pH in a system: the henderson hasselbach equation (below), which helps understand the influence of pH on a system through the pKa property. The pKa of a molecule is the pH of a solution where the acid (HA) and base (A<sup>-</sup>) forms of that molecule are present in equal concentrations. What does this mean? At pH greater than the pKa the base anionic form will dominate, potentially leading to ‘deprotonation’, or removal of a hydrogen, and resultant ionization of that molecule. At pH below the pKa the acid, or ‘protonated’ form predominates resulting in precipitation, or the insoluble phase as the dominant form. There is more complicated chemistry that occurrs at mineral surfaces that I can’t get into here. But overall, just know that pH both relates to and controls solublity of ions in solution.</p>
 <p><span class="math display">\[pH=pK_{a} + log_{10}[A^{-}/HA]\]</span></p>
-</div>
-<div id="how-to-measure-ph" class="section level3">
-<h3>How to measure pH</h3>
+<p>###How to measure pH</p>
 <p>There is no one way to measure soil pH, so more important than anything is to measure pH the same way every time, but here’s an accepted method that uses 2:1 water:soil. If you want to learn all there is to know about pH and soil see the <a href="http://www.geokniga.org/bookfiles/geokniga-handbook-soil-analysis.pdf">handbook of soil analysis</a></p>
-<div id="materials" class="section level4">
-<h4>Materials</h4>
-<p>pH probe Buffers for calibration (commonly pH 2, 4, 7, and possibly 9)</p>
-</div>
-<div id="procedure" class="section level4">
-<h4>Procedure</h4>
-<div id="plain-water" class="section level5">
-<h5>Plain Water</h5>
-<ol style="list-style-type: decimal">
-<li>Mix 10 grams soil with 20 mL water in a 120 mL specimen cup.</li>
-<li>Stir with a glass rod several times over the course of 10 minutes.</li>
-<li>Stir at 10 mintues, then let sit for 5 minutes.</li>
-<li>Calibrate pH electrode with reference buffers.</li>
-<li>Wash pH electrode with DI water, dab dry with kimwipe, and submerge in the suspension (do not let electrode touch the bottom, or the soil solution)</li>
-</ol>
-</div>
+<p>####Materials pH probe Buffers for calibration (commonly pH 2, 4, 7, and possibly 9)</p>
+<p>####Procedure</p>
+<p>#####Plain Water 1. Mix 10 grams soil with 20 mL water in a 120 mL specimen cup. 2. Stir with a glass rod several times over the course of 10 minutes. 3. Stir at 10 mintues, then let sit for 5 minutes. 4. Calibrate pH electrode with reference buffers. 5. Wash pH electrode with DI water, dab dry with kimwipe, and submerge in the suspension (do not let electrode touch the bottom, or the soil solution)</p>
 <div id="exchangeable-acidity---cacl2" class="section level5">
 <h5>Exchangeable Acidity - CaCl<sub>2</sub></h5>
 <p>Repeat the procedure, but instead of plain water, use 0.01 M CaCl<sub>2</sub>.</p>
 <p>This is done because Ca<sup>2+</sup> is a strong sorbent, and commonly Al3+ is the most concentrated cation on the mineral exchange complex. As a result, CaCl<sub>2</sub> solution can be used in place of water to assess the exchangeable acidity. Al<sup>3+</sup> is released, it hydrolyzes water, and generates greater acidity. This is relates to why soils become more acidic as they weather.</p>
-</div>
-</div>
 </div>
 
 
