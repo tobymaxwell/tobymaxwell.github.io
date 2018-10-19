@@ -8,6 +8,8 @@ navbar:
     - text: "Current Projects"
       href: projects.html
     - text: "Publications"
+      href: pubs.html
+    - text: "CV"
       href: cv.html
     - text: "Methods"
       href: methods.html
