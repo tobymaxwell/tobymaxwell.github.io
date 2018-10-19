@@ -10,7 +10,7 @@ navbar:
     - text: "Publications"
       href: pubs.html
     - text: "CV"
-      href: cv.html
+      href: /files/CV.pdf
     - text: "Methods"
       href: methods.html
 
