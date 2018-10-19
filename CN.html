@@ -22,7 +22,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -92,6 +93,9 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -109,7 +113,6 @@ body {
   padding-top: 69px;
   margin-top: -69px;
 }
-
 .section h2 {
   padding-top: 69px;
   margin-top: -69px;
@@ -129,6 +132,43 @@ body {
 .section h6 {
   padding-top: 69px;
   margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -150,18 +190,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -189,7 +288,7 @@ $(document).ready(function () {
   <a href="pubs.html">Publications</a>
 </li>
 <li>
-  <a href="cv.html">CV</a>
+  <a href="files/CV.pdf">CV</a>
 </li>
 <li>
   <a href="methods.html">Methods</a>
@@ -234,9 +333,7 @@ $(document).ready(function () {
 </div>
 
 
-<div id="sample-preparation" class="section level3">
-<h3>Sample preparation</h3>
-<p>A very small amount (2-10 mg) of a sample will be used for total carbon and nitrogen analysis. As a result, samples must be well homogenized. Depending on the amount of sample you have this can be done in a number of ways. After drying you can</p>
+<p>###Sample preparation A very small amount (2-10 mg) of a sample will be used for total carbon and nitrogen analysis. As a result, samples must be well homogenized. Depending on the amount of sample you have this can be done in a number of ways. After drying you can</p>
 <ol style="list-style-type: decimal">
 <li>Mortar and pestle with liquid nitrogen</li>
 <li>Grind in a coffee grinder</li>
@@ -245,27 +342,14 @@ $(document).ready(function () {
 <p>If the first two are your option, then you may want to pass the sample through a #40 sieve (425 micron) to assure consistent measurements.</p>
 <p>After grinding samples then need to be packaged into tin capsules and weighed on a micro balance to 0.001 mg accuracy.</p>
 <p>A note at this point, if you are measuring soils with carbonates present this will interfere with the analysis. You need to follow a separate procedure, detailed in the <a href="http://stableisotopefacility.ucdavis.edu/articles/Harris%20ea%202001(Acid%20Fumigation).pdf">attached article by Harris et al.</a></p>
-</div>
-<div id="elemental-analysis" class="section level3">
-<h3>Elemental Analysis</h3>
-<p>Perhaps the most common analyzer is the Costech ECS 4010. This robust instrument combusts the tin capsule in a high oxygen environment at 1020°C. This causes the tin to combust, raising the sample temperature to about 1800C. In theory this rapid and high energy conversion quantitatively converts the material into gas, carbon is then completely oxidized by a chromium oxide catalyst, and nitrogen is left as N2 with and excess oxygen removed by reduced copper wires. Water is removed with magnesium perchlorate, and the gasses separated by a chromatographic column, and measured by a <a href="https://en.wikipedia.org/wiki/Thermal_conductivity_detector">thermal conductivity detector</a>. More information on the specifics of running a costech are available online, one good source is <a href="https://lter.kbs.msu.edu/protocols/148">here</a>.</p>
-</div>
-<div id="loss-on-ignition" class="section level3">
-<h3>Loss on Ignition</h3>
-<p>Another simpler way to estimate soil carbon is the loss on ignition method. This involves combustion of soil in an oven at 550°C to remove carbon - effectively combusting the carbon by conversion of complex organic matter to CO<sub>2</sub> and H<sub>2</sub>O. This is not quantitative as soil minerals will also begin to decompose, for example common soil minerals such as goethite, gibbsite and kaolinite will lose OH groups resulting in weight loss of a sample. This can be a good method for qualitative comparisons as it is robust, efficient, and simple.</p>
-<div id="materials" class="section level4">
-<h4>Materials</h4>
-<p>Muffle Furnace (or oven that can reach and sustain 550°C)<br />
+<p>###Elemental Analysis Perhaps the most common analyzer is the Costech ECS 4010. This robust instrument combusts the tin capsule in a high oxygen environment at 1020°C. This causes the tin to combust, raising the sample temperature to about 1800C. In theory this rapid and high energy conversion quantitatively converts the material into gas, carbon is then completely oxidized by a chromium oxide catalyst, and nitrogen is left as N2 with and excess oxygen removed by reduced copper wires. Water is removed with magnesium perchlorate, and the gasses separated by a chromatographic column, and measured by a <a href="https://en.wikipedia.org/wiki/Thermal_conductivity_detector">thermal conductivity detector</a>. More information on the specifics of running a costech are available online, one good source is <a href="https://lter.kbs.msu.edu/protocols/148">here</a>.</p>
+<p>###Loss on Ignition Another simpler way to estimate soil carbon is the loss on ignition method. This involves combustion of soil in an oven at 550°C to remove carbon - effectively combusting the carbon by conversion of complex organic matter to CO<sub>2</sub> and H<sub>2</sub>O. This is not quantitative as soil minerals will also begin to decompose, for example common soil minerals such as goethite, gibbsite and kaolinite will lose OH groups resulting in weight loss of a sample. This can be a good method for qualitative comparisons as it is robust, efficient, and simple.</p>
+<p>####Materials Muffle Furnace (or oven that can reach and sustain 550°C)<br />
 Crucibles<br />
 Scale</p>
 <p>How much soil is used depends on the organic matter content, and how sensitive your scale is. Think, if you have an agricultural soil with 1-2% organic matter, in a 20 gram sample you will have to measure a loss of only 0.2-0.4 grams.</p>
-</div>
-<div id="procedure" class="section level4">
-<h4>Procedure</h4>
-<p>Weigh crucible, add soil, weigh crucible with the soil, add to the oven and combust at 550°C for 3 hours.</p>
+<p>####Procedure Weigh crucible, add soil, weigh crucible with the soil, add to the oven and combust at 550°C for 3 hours.</p>
 <p>A more detailed description of the procedure, and parameterization of the concerns for mineral alterations can be read about in <a href="https://s3.amazonaws.com/academia.edu.documents/44088168/Estimating_soil_organic_carbon_through_l20160324-28196-w3id14.pdf?AWSAccessKeyId=AKIAIWOWYYGZ2Y53UL3A&amp;Expires=1529525147&amp;Signature=tngNbQh0MawmYpDVeTUckhX3IPQ%3D&amp;response-content-disposition=inline%3B%20filename%3DEstimating_soil_organic_carbon_through_l.pdf">this paper</a></p>
-</div>
-</div>
 
 
 

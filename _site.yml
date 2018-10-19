@@ -10,7 +10,7 @@ navbar:
     - text: "Publications"
       href: pubs.html
     - text: "CV"
-      href: https://tobymaxwell.github.io/files/CV.pdf
+      href: files/CV.pdf
     - text: "Methods"
       href: methods.html
 
