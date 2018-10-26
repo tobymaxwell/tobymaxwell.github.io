@@ -35,7 +35,7 @@ Important for mineralogical analysis, and selective dissolution of different min
 #####**Soil and litter Bulk Density**
 Bulk density of soil and litter is very simple to measure and adds a significant component to stoichiometric analysis of a system. This measurement can convert total carbon and nitrogen data, to total carbon per unit area, increasing the scalability and improving the value of total carbon measurements.
 
-For soil: you can buy brass or steel cylindrical rings, or make your own. It is important to disturb the soil as little as possible. One way to help, is to make one edge of your cylinder angled (but not quite sharp). This helps to push it into the soil. After pushing the cylinder into the soil, you extracting it, now with a known volme of soil. Dry it in an oven at 105&deg;C for 48 hours. With that weight you can calculate the g/cm^3^ of soil. Typical values are 1-1.6, or less for volcanic and organic rich soils, more for compacted or very 'heavy' clay soils. 
+For soil: you can buy brass or steel cylindrical rings, or make your own. It is important to disturb the soil as little as possible. One way to help, is to make one edge of your cylinder angled (but not quite sharp). This helps to push it into the soil. After pushing the cylinder into the soil, you extract it, now with a known volme of soil. Dry it in an oven at 105&deg;C for 48 hours. With that weight you can calculate the g/cm^3^ of soil. Typical values are 1-1.6, or less for volcanic and organic rich soils, more for compacted or very 'heavy' clay soils. 
 
 For litter, some kind of square frame works best which can be placed on the ground, all the detritus within the frame is collected, and weighed after drying for 48 hours at 60&deg;C. This gives units of g/cm^2^.
 

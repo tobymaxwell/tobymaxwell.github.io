@@ -22,8 +22,7 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -93,9 +92,6 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
-.html-widget {
-  margin-bottom: 20px;
-}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -113,6 +109,7 @@ body {
   padding-top: 69px;
   margin-top: -69px;
 }
+
 .section h2 {
   padding-top: 69px;
   margin-top: -69px;
@@ -132,43 +129,6 @@ body {
 .section h6 {
   padding-top: 69px;
   margin-top: -69px;
-}
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -190,77 +150,18 @@ $(document).ready(function () {
 });
 </script>
 
+
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
 </script>
 
 <!-- code folding -->
+
 
 
 
@@ -334,9 +235,16 @@ $(document).ready(function () {
 
 
 <p>Clasically people learn the hydrometer method, it’s great, tried and true, and gives good data. That being said, similar accuracy has been demonstrated by the modified pipette method (detailed second here). It allows for much higher sample throughput making it my preferred method.</p>
-<p>##Hydrometer Method ####Materials Graduated cylinders (1000 mL) Mortar and pestle scale sodium hexametaphosphate (solution of 50g/L) plungers hydrometer</p>
-<p>####Procedure 1. <strong>Lightly</strong> crush soils to separate aggregates and sieve to 2 mm. Pick out twigs, grass roots etc.</p>
-<ol start="2" style="list-style-type: decimal">
+<div id="hydrometer-method" class="section level2">
+<h2>Hydrometer Method</h2>
+<div id="materials" class="section level4">
+<h4>Materials</h4>
+<p>Graduated cylinders (1000 mL) Mortar and pestle scale sodium hexametaphosphate (solution of 50g/L) plungers hydrometer</p>
+</div>
+<div id="procedure" class="section level4">
+<h4>Procedure</h4>
+<ol style="list-style-type: decimal">
+<li><p><strong>Lightly</strong> crush soils to separate aggregates and sieve to 2 mm. Pick out twigs, grass roots etc.</p></li>
 <li><p>Weigh 40 grams (+/- 0.5) of air dry &lt;2mm soil into a bottle. Add 50 mL sodium hexametaphosphate solution and 100 mL water to that bottle. Shake on a mechanical shaker overnight.</p></li>
 <li><p>Add soil solution to graduated cylinder. This must be a quatitative transfer, since the calculations rely on the original weight. You can use water and a squirt bottle to do this, as it will all end up in the graduated cylinder and the volume can be accounted for, by filling each cylinder to a full 1000 mL.</p></li>
 <li><p>Agitate the solution for 1 minute with the plunger so all soil is in suspension Gently place hydrometer in, let it settle, and get an accurate reading from the meniscus at 40 seconds time (sand has settled), and then again at exactly 120 minutes.</p></li>
@@ -368,17 +276,30 @@ clay&lt;-pctclay(a,d,e)*100 #convert to percent
 #calc percent silt
 pctsilt&lt;-function(sand,clay){100-(clay+sand)}
 silt&lt;-pctsilt(sand, clay)</code></pre>
-<p>##Modified Pipette Method</p>
+</div>
+</div>
+<div id="modified-pipette-method" class="section level2">
+<h2>Modified Pipette Method</h2>
 <p>Method is based on stokes law: v=g(ps-pl)x^2/18n under the assumption that soil particles are spheres.</p>
 <p>v=velocity of a fall g=acceleration of gravity ps = particle density pl = liquid density x = particle diameer n = fluid viscosity</p>
-<p>####Materials 50 mL centrifuge tubes<br />
+<div id="materials-1" class="section level4">
+<h4>Materials</h4>
+<p>50 mL centrifuge tubes<br />
 Aluminum weigh boats Scale (a standard analytical scale that measures to 0.0001 g)<br />
 50 mL dispensette<br />
 adjustable 50 mL pipette with tips and stopper (can make your own)<br />
 reciprocating shaker<br />
 0.5% Sodium Hexametaphosphate - 5 g/L</p>
-<p>####Procedure 1. weigh out 5 grams soil air dried and sieved to 2 mm into centrifuge tube. 2. add 40 mL 0.5% Sodium Hexametaphosphate to each tube, cap them. 3. Shake overnight on recipprocating shaker 4. Pre-Weigh sample tins which will be used to dispense aliquots of soil suspended in water. 5. After shaking overnight, hand shake to further disperse and allow to settle according to the table below (temperature dependent).</p>
-<pre><code>## Warning: package &#39;knitr&#39; was built under R version 3.4.3</code></pre>
+</div>
+<div id="procedure-1" class="section level4">
+<h4>Procedure</h4>
+<ol style="list-style-type: decimal">
+<li>weigh out 5 grams soil air dried and sieved to 2 mm into centrifuge tube.</li>
+<li>add 40 mL 0.5% Sodium Hexametaphosphate to each tube, cap them.</li>
+<li>Shake overnight on recipprocating shaker</li>
+<li>Pre-Weigh sample tins which will be used to dispense aliquots of soil suspended in water.</li>
+<li>After shaking overnight, hand shake to further disperse and allow to settle according to the table below (temperature dependent).</li>
+</ol>
 <table>
 <caption>Settling Times for Sand and Clay Sampling by Temperature</caption>
 <thead>
@@ -426,7 +347,9 @@ reciprocating shaker<br />
 </li>
 <li>Remove dried tins, allow to cool, and record dry weight to nearest 0.0001 grams.</li>
 </ol>
-<p>####Calculations</p>
+</div>
+<div id="calculations" class="section level4">
+<h4>Calculations</h4>
 <pre class="r"><code>#example calculation from some of my data using R.
 sand&lt;-function(dryweight,tinweight,blank, originalsoiladded){100-(((((dryweight-tinweight)-blank)*40/2.5)/originalsoiladded)*100)} #generate a function for inputting data.
 
@@ -447,6 +370,8 @@ clay(e,f,c,d)</code></pre>
 <pre class="r"><code>silt&lt;-(100-sand(a,b,c,d)-clay(e,f,c,d))
 print(silt)</code></pre>
 <pre><code>## [1] 13.69432</code></pre>
+</div>
+</div>
 
 
 
