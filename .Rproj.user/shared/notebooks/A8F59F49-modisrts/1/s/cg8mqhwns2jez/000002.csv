@@ -1,0 +1,23 @@
+"0","library(raster)"
+"0","library(rgeos)"
+"2","rgeos version: 0.3-26, (SVN revision 560)
+ GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921 
+ Linking to sp version: 1.2-5 
+ Polygon checking: TRUE 
+
+"
+"0","library(rgdal)"
+"2","rgdal: version: 1.2-16, (SVN revision 701)
+ Geospatial Data Abstraction Library extensions to R successfully loaded
+ Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
+ Path to GDAL shared files: /Users/Maxwell/Library/R/3.3/library/rgdal/gdal
+ GDAL binary built with GEOS: FALSE 
+ Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+ Path to PROJ.4 shared files: /Users/Maxwell/Library/R/3.3/library/rgdal/proj
+ Linking to sp version: 1.2-5 
+"
+"0","library(rts) #install and load the rts package for modistools specifically"
+"0","#need to set nasa authorization (username and password that are separately acquired online, see link above), but only need to do once with the function below: setNASAauth()"
+"0","#setNASAauth()"
+"0","#setMRTpath(""/Users/Maxwell/MRT/bin/"", update=T) #function to set the path of the modis reprojection tool for the functions to find"
+"0","#modisProducts() #function to check out possible products (Beware, the version of Modis matters for extracting with ModisDownload later)"
