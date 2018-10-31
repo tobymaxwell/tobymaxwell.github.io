@@ -1,6 +1,4 @@
----
-
----
+&nbsp;  
 
 ###Methods of Analysis
 
@@ -13,7 +11,7 @@ It is important to think about where variability lies in an experiment and sampl
 
 Then, comes design! I certainly can't provide a comprehensive list, but a few common field designs are mentioned in brief [here](design.html)
 
-#####**Soil Sampling**
+#####**Plant and Soil Sampling**
 As with any sampling there is no one way to sample soil and plants to observe interactive effects, but as soil is notoriously heterogenous, and you can only take a small number of plant samples to the lab, methods must be refined to a research question to avoid extraneous sampling. Some tips for how to start thinking about this are included [here](ssampling.html). Also you should pick up a free copy of the USDA NRCS [Field Book for Describing and Sampling Soils](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/research/guide/?cid=nrcs142p2_054184).
 
 #####**Total Carbon and Nitrogen Analysis**
@@ -24,7 +22,7 @@ In addition, carbon and nitrogen together tell the most basic information about 
 The methods of analysis are going to be different for every lab, but I have summarized the preparation steps [here](CN.html)
 
 #####**MODIS/TERRA bulk extraction of data in R**
-Modis provides a high frequency spatial data for many different parameters across the globe. My interest is most commonly in NDVI or EVI to look at productivity, but an amazing amount of data is available, see their [list] (https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table). Beware however, that some products are linked, e.g. evapotranspiration is calculated from a relationship NDVI, so they are not independent. See my code for an efficient way to download and aggregate large amounts of modis data in my tutorial [here](modisrts.html).  
+Modis provides a high frequency spatial data for many different parameters across the globe. My interest is most commonly in NDVI or EVI to look at productivity, but an amazing amount of data is available, see their [list](https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table). Beware however, that some products are linked, e.g. evapotranspiration is calculated from a relationship NDVI, so they are not independent. See my code for an efficient way to download and aggregate large amounts of modis data in my tutorial [here](modisrts.html).  You will also need to download the modis reprojection tool [here](https://lpdaac.usgs.gov/tools/modis_reprojection_tool). It can cause some grief with installation on a mac, if this happens to you, check out [this help page](https://www.romerostories.com/single-post/2017/12/22/Modis-Reprojection-Tool-MRT---Installation-tutorial) which I found helpful. 
 
 #####**Leaf Area Index**
 Leaf Area Index is an efficient way to measure the productivity of a site. It has been shown to relate to NDVI, evapotranspiration, and water use efficiency. An full hemispherical fisheye lens is required, but after that, you can get all the data you want! A description of how to take pictures in the field is [here](lai.html). I will not get into image processing, because there are liekly many options for that process. I have used free software that is available for processing images [from the cary institute](http://www.caryinstitute.org/science-program/our-scientists/dr-charles-d-canham/gap-light-analyzer-gla). This has worked well for me, and has excellent supporting documentation, and peer reviewed, published validation. 
@@ -40,7 +38,7 @@ Bulk density of soil and litter is very simple to measure and adds a significant
 
 For soil: you can buy brass or steel cylindrical rings, or make your own. It is important to disturb the soil as little as possible. One way to help, is to make one edge of your cylinder angled (but not quite sharp). This helps to push it into the soil. After pushing the cylinder into the soil, you extract it, now with a known volme of soil. Dry it in an oven at 105&deg;C for 48 hours. With that weight you can calculate the g/cm^3^ of soil. Typical values are 1-1.6, or less for volcanic and organic rich soils, more for compacted or very 'heavy' clay soils. 
 
-For litter, some kind of square frame works best which can be placed on the ground, all the detritus within the frame is collected, and weighed after drying for 48 hours at 60&deg;C. This gives units of g/cm^2^.
+For litter, I use a 3" diameter piece of pvc that can be purchased from any hardware store for about $1. It is nearly indescructable and is used as follows: it is placed on the ground, all the detritus around the frame is cleared away, and then that within the frame is collected and weighed after drying for 48 hours at 60&deg;C. This gives units of g/cm^2^.
 
 #####**Soil pH**
 Similar to texture, pH is a soil property that is often used as a very general indicator of soil processes, as it corresponds to many things including microbial community, weathering, fertility. It is quite easy to measure, highly studied, and commonly varies across natural gradients (e.g. climate), so it can provide useful insight into how soils vary over space. pH is also critical to determining the solubility of organic matter, as well as base cations in solution impacting many soil processes. Some things to consider when measuring pH are drescribed [here](ph.html)
