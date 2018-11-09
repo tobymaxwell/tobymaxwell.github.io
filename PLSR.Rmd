@@ -1,0 +1,65 @@
+---
+title: "PLSR"
+author: "Toby Maxwell"
+date: "11/7/2018"
+output: html_document
+---
+
+```{r}
+library(pls)
+library(ggplot2)
+#sample data frame
+test<-data.frame(
+  Yield<-rnorm(9, 6000, 1000),
+  Texture<-rep(c("Loam", "Clay", "Sand"),3),
+  Year<-as.factor(c(rep(2001:2003, 3))),
+  Site<-c(rep("a",3), rep("b",3), rep("c",3)),
+  MAT<-rnorm(9,8,3),
+  MAP<-rnorm(9,100,15),
+  Tmin.q1<-rnorm(9,4,2),
+  Tmax.q1<-rnorm(9,14,2))
+colnames(test)<-c("Yield","Texture","Year", "Site", "MAT", "MAP", "Tmin.q1", "Tmax.q1")
+str(test)
+m1<-plsr(Yield~., data=test, validation="CV", jackknife=TRUE, segments=5, method = "oscorespls")
+summary(m1)
+pls.RMSEP = RMSEP(m1, estimate="CV")
+which.min(pls.RMSEP$val)
+
+summary(m1)
+coef(m1)
+validationplot(m1, val.type="RMSEP")
+pls.RMSEP = RMSEP(m1, estimate="CV")
+plot(pls.RMSEP, main="RMSEP PLS YIELD", xlab="components")
+min_comp = which.min(pls.RMSEP$val)
+points(min_comp, pls.RMSEP$val[2], pch=1, col="red", cex=1.5)
+
+plot(test$Yield~resid(m1)[,,2])
+wpls.pred = predict(m1,test, ncomp=1, type="response")
+```
+
+#Funciton for importance
+``` {r} 
+VIP <- function(object) {
+  if (object$method != "oscorespls")
+    stop("Only implemented for orthogonal scores algorithm.  Refit with 'method = \"oscorespls\"'")
+  if (nrow(object$Yloadings) > 1)
+    stop("Only implemented for single-response models")
+  
+  SS <- c(object$Yloadings)^2 * colSums(object$scores^2)
+  Wnorm2 <- colSums(object$loading.weights^2)
+  SSW <- sweep(object$loading.weights^2, 2, SS / Wnorm2, "*")
+  sqrt(nrow(SSW) * apply(SSW, 1, cumsum) / cumsum(SS))
+}
+```
+
+```{r}
+plot(m1, ncomp=1, asp=1, line=TRUE)
+m1.coef<-coef(jack.test(m1, ncomp=1))
+importance<-VIP(m1)
+str(importance)
+ax1imp<-colMeans(importance)
+axnorm<-ax1imp/max(ax1imp)
+imp.df<-data.frame(m1$coefficients[,,1], axnorm, names(axnorm))
+
+ggplot(imp.df, aes(axnorm, x=names.axnorm.,fill=m1.coef))+geom_bar(stat="identity")+theme_classic()+theme(axis.text.x = element_text(angle = 90, hjust = 1))+xlab("")+ylab("Normalized PLSR Importance")+coord_flip()+scale_fill_gradient(low="white", high="forestgreen")+theme(text=element_text(size=16,  family="Georgia"))+guides(fill=guide_legend(title="Standardized\nCoefficient"))+theme(legend.position="bottom")
+```

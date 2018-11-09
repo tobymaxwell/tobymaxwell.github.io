@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Toby Maxwell" />
+
+
+<title>Multimodel Inference</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Toby Maxwell</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="about.html">About Me</a>
+</li>
+<li>
+  <a href="projects.html">Current Projects</a>
+</li>
+<li>
+  <a href="pubs.html">Publications</a>
+</li>
+<li>
+  <a href="https://tobymaxwell.github.io/files/CV.pdf">CV</a>
+</li>
+<li>
+  <a href="methods.html">Methods</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="contact.html">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/tobymmaxwell">
+    <span class="fa fa-twitter fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/toby-maxwell-18aa195b/">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://github.com/eeooo4">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Multimodel Inference</h1>
+<h4 class="author"><em>Toby Maxwell</em></h4>
+<h4 class="date"><em>11/7/2018</em></h4>
+
+</div>
+
+
+<pre class="r"><code>library(MuMIn)</code></pre>
+<pre><code>## Warning: package &#39;MuMIn&#39; was built under R version 3.4.4</code></pre>
+<pre class="r"><code>data(&quot;mtcars&quot;)
+str(mtcars) #auto industry dataset that is included with R to predict most important factors for gas mileage (mpg)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    32 obs. of  11 variables:
+##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp: num  160 160 108 258 360 ...
+##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec: num  16.5 17 18.6 19.4 17 ...
+##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
+<pre class="r"><code>model&lt;-lm(mpg~., mtcars) #the . after the ~ means include the whole dataset
+options(na.action = &quot;na.fail&quot;) #needs this option set to run model tool</code></pre>
+<pre class="r"><code>multi&lt;-dredge(model, trace=1) #find all models for mpg, trace setting makes it show progress bar</code></pre>
+<pre><code>## Fixed term is &quot;(Intercept)&quot;</code></pre>
+<pre class="r"><code>multi.cut&lt;-get.models(multi, subset= delta&lt;2) #delta is the difference in AIC from the best model, so subsetting the models into those within 2 of best model.
+imp.multi&lt;-importance(multi.cut) # importance is sum of akaike weights for each variable. Weights are 
+imp.multi #shoes importance of variables from models in multi.cut</code></pre>
+<pre><code>##                      wt   qsec am   cyl  hp   carb
+## Importance:          1.00 0.55 0.45 0.36 0.33 0.21
+## N containing models:    8    4    3    3    3    2</code></pre>
+<pre class="r"><code>barplot(t(imp.multi)) #display importance values</code></pre>
+<p><img src="multimod_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>multi.mod&lt;-model.avg(multi.cut)
+multi.mod</code></pre>
+<pre><code>## 
+## Call:
+## model.avg(object = multi.cut)
+## 
+## Component models: 
+## &#39;156&#39;  &#39;36&#39;   &#39;1456&#39; &#39;346&#39;  &#39;1256&#39; &#39;236&#39;  &#39;46&#39;   &#39;56&#39;  
+## 
+## Coefficients: 
+##        (Intercept)       am      qsec       wt        cyl           hp
+## full      25.09408 1.395553 0.5718666 -3.62078 -0.4473088 -0.007273417
+## subset    25.09408 3.068905 1.0434061 -3.62078 -1.2587822 -0.021887320
+##              carb
+## full   -0.1044988
+## subset -0.4871839</code></pre>
+<pre class="r"><code>summary(multi.mod) #check out model coefficients </code></pre>
+<pre><code>## 
+## Call:
+## model.avg(object = multi.cut)
+## 
+## Component model call: 
+## lm(formula = mpg ~ &lt;8 unique rhs&gt;, data = mtcars)
+## 
+## Component models: 
+##      df logLik   AICc delta weight
+## 156   5 -72.06 156.43  0.00   0.23
+## 36    4 -74.01 157.49  1.06   0.13
+## 1456  6 -71.16 157.69  1.26   0.12
+## 346   5 -72.74 157.78  1.36   0.12
+## 1256  6 -71.28 157.92  1.50   0.11
+## 236   5 -72.81 157.93  1.50   0.11
+## 46    4 -74.33 158.13  1.71   0.10
+## 56    4 -74.36 158.20  1.77   0.09
+## 
+## Term codes: 
+##   am carb  cyl   hp qsec   wt 
+##    1    2    3    4    5    6 
+## 
+## Model-averaged coefficients:  
+## (full average) 
+##              Estimate Std. Error Adjusted SE z value Pr(&gt;|z|)    
+## (Intercept) 25.094078  14.068734   14.172892   1.771 0.076633 .  
+## am           1.395553   1.813046    1.836891   0.760 0.447412    
+## qsec         0.571867   0.588194    0.593046   0.964 0.334902    
+## wt          -3.620780   0.922075    0.948859   3.816 0.000136 ***
+## cyl         -0.447309   0.678802    0.684018   0.654 0.513148    
+## hp          -0.007273   0.012957    0.013130   0.554 0.579605    
+## carb        -0.104499   0.265828    0.271228   0.385 0.700030    
+##  
+## (conditional average) 
+##             Estimate Std. Error Adjusted SE z value Pr(&gt;|z|)    
+## (Intercept) 25.09408   14.06873    14.17289   1.771 0.076632 .  
+## am           3.06890    1.44681     1.51150   2.030 0.042320 *  
+## qsec         1.04341    0.37315     0.38691   2.697 0.007001 ** 
+## wt          -3.62078    0.92207     0.94886   3.816 0.000136 ***
+## cyl         -1.25878    0.52460     0.54333   2.317 0.020514 *  
+## hp          -0.02189    0.01361     0.01410   1.552 0.120684    
+## carb        -0.48718    0.37816     0.39564   1.231 0.218177    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Relative variable importance: 
+##                      wt   qsec am   cyl  hp   carb
+## Importance:          1.00 0.55 0.45 0.36 0.33 0.21
+## N containing models:    8    4    3    3    3    2</code></pre>
+<pre class="r"><code>plot(mpg~predict(multi.mod), mtcars, main = &quot;Model Prediction&quot;) #how well does model work?</code></pre>
+<p><img src="multimod_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
