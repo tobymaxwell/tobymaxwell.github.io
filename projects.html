@@ -11,7 +11,7 @@
 
 
 
-<title></title>
+<title>projects.utf8.md</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +22,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -92,6 +93,9 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -109,7 +113,6 @@ body {
   padding-top: 69px;
   margin-top: -69px;
 }
-
 .section h2 {
   padding-top: 69px;
   margin-top: -69px;
@@ -129,6 +132,43 @@ body {
 .section h6 {
   padding-top: 69px;
   margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -150,18 +190,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -189,7 +288,7 @@ $(document).ready(function () {
   <a href="pubs.html">Publications</a>
 </li>
 <li>
-  <a href="https://tobymaxwell.github.io/files/CV.pdf">CV</a>
+  <a href="https://tobymaxwell.github.io/files/Resume.pdf">Resume</a>
 </li>
 <li>
   <a href="methods.html">Methods</a>
@@ -233,26 +332,16 @@ $(document).ready(function () {
 </div>
 
 
-<div id="current-projects" class="section level1">
-<h1>Current Projects</h1>
-<div id="the-climate-paradox-mapping-resilience-and-vulnerability-of-montane-forests" class="section level3">
-<h3>The climate paradox: mapping resilience and vulnerability of montane forests</h3>
-<p><img src="images/EVI.jpg" style="width:25%; border:2px solid; margin-right: 20px" align="left"> Trees can adjust to natural climate fluctuations by efficiently regulating leaf carbon and water exchange; however, the rapid pace of human induced climatic change threatens the ability of forests to sequester carbon and resist draught. While these limits are often characterized at the scale of an individual tree, or a plot, this research seeks to characterize regional scale drivers of forest productivity across the state of Oregon over recent decades. Recent research has found the most stressed forest ecosystems are mixed conifer forests where drought induced mortality has led to massive dieoffs. However, at high elevations in these same forests, tree lines are expanding, with longer growing seasons aiding forest expansion. This project seeks to develop of a risk index for dieoff of different regions based on characterizations of the impact of shifting climate. By measuring plant, site, and regional scale factors controlling productivity over time we will combine spatial and temporal data, generating a series of maps to inform land management, educate the general public, and direct future scientific efforts. To understand the range of impact of climate change, we identified regions in Oregon which are experiencing a variety of changes in climate. In the Northeast, the Wallowa mountains show increased moisture, while many Western locations are increasingly dry. By identifying factors which link spatial scales, this work will develop a tool to aid future efforts to model the impact of climate change and disturbance on forest evolution, and natural resources.<br />
+<p>#Current Projects ###The climate paradox: mapping resilience and vulnerability of montane forests <img src="images/EVI.jpg" style="width:25%; border:2px solid; margin-right: 20px" align="left"> Trees can adjust to natural climate fluctuations by efficiently regulating leaf carbon and water exchange; however, the rapid pace of human induced climatic change threatens the ability of forests to sequester carbon and resist draught. While these limits are often characterized at the scale of an individual tree, or a plot, this research seeks to characterize regional scale drivers of forest productivity across the state of Oregon over recent decades. Recent research has found the most stressed forest ecosystems are mixed conifer forests where drought induced mortality has led to massive dieoffs. However, at high elevations in these same forests, tree lines are expanding, with longer growing seasons aiding forest expansion. This project seeks to develop of a risk index for dieoff of different regions based on characterizations of the impact of shifting climate. By measuring plant, site, and regional scale factors controlling productivity over time we will combine spatial and temporal data, generating a series of maps to inform land management, educate the general public, and direct future scientific efforts. To understand the range of impact of climate change, we identified regions in Oregon which are experiencing a variety of changes in climate. In the Northeast, the Wallowa mountains show increased moisture, while many Western locations are increasingly dry. By identifying factors which link spatial scales, this work will develop a tool to aid future efforts to model the impact of climate change and disturbance on forest evolution, and natural resources.<br />
  </p>
-</div>
-<div id="probing-for-the-role-of-fungal-networks-in-nutrient-transfer-of-novel-plant-communities-across-the-pnw" class="section level3">
-<h3>Probing for the role of fungal networks in nutrient transfer of novel plant communities across the PNW</h3>
-<p>Injecting Enriched CO<sub>2</sub> into Growth Chambers, May, 2018<br />
+<p>###Probing for the role of fungal networks in nutrient transfer of novel plant communities across the PNW<br />
+Injecting Enriched CO<sub>2</sub> into Growth Chambers, May, 2018<br />
 <img src="images/prairie.jpg" style="width:50%; border:2px solid; margin-right: 20px" align="left"></p>
 <p>The project will assess plant and soil community sensitivity to experimentally imposed drought across a 520 km latitudinal gradient in the PNW. A broad climatic gradient will be used to study typical prairie and pasture systems where increasingly severe seasonal differences, characterized by wetter winters and drier summers, have caused declines in productivity. General hypotheses pertaining to the role of fungal networks in maintaining diverse prairie and low-diversity pasture productivity will be tested to address a major challenge for sustainability in the region and in similar systems elsewhere. Specifically, the proposed tasks will identify plant and fungal species that best maintain primary productivity, plant water-use efficiency, and foster C and N exchange in communities under stress. This knowledge will be used to quantify thresholds of species composition and soil resource availability beyond which intervention is needed to prevent loss of biodiversity and resilience to drought. Alterations of mycorrhizal mediated transfer or retention of C and N will be monitored using pulse stable isotope labeling experiments to determine whether and how inter-specific connectivity increases community resilience and productivity under imposed stress. A replicated nested design across a latitudinal gradient will be used to characterize mycorrhizal network behaviors that can be simplified to improve inter-specific connectivity and resource transfer in native and managed systems. Passive and active resource transport among different plant species and fungi will be distinguished through stable isotope probing of DNA sequences and used to develop a spatially-explicit mechanistic model for the scaling of local mutualistic and competitive interactions affecting composition and function of common mycorrhizal networks.</p>
-</div>
-<div id="connecting-carbon-and-oxygen-isotope-ratios-from-plant-cellulose-to-soil-carbonates-to-improve-understanding-of-environmental-stress" class="section level3">
-<h3>Connecting carbon and oxygen isotope ratios from plant cellulose to soil carbonates to improve understanding of environmental stress</h3>
-<p>Eastern Sierra Aspen, October 2015<br />
+<p>###Connecting carbon and oxygen isotope ratios from plant cellulose to soil carbonates to improve understanding of environmental stress<br />
+Eastern Sierra Aspen, October 2015<br />
 <img src="images/leaves.jpg" style="width:50%; border:2px solid; margin-right: 20px" align="left"></p>
 <p>In this project I am helping advise UO Geology student Adrian Broz in identifying a mechanism and mathematical transfer functions to relate carbon and oxygen isotope ratios of soil carbonates as a reflection of plant physiological processes that are identifiable in leaf and woody cellulosic isotope ratios. As soil microorganisms respire CO<sub>2</sub>, the soil atmosphere is in equilibrium with soil water, preserving that organically derived signal. Connecting these two pools will allow for soil carbonates in paleosols to be used to identify atmospheric conditions throughout geologic time, informing our understanding of plant responses to past environmental conditions in order to better predict future change.</p>
-</div>
-</div>
 
 
 
