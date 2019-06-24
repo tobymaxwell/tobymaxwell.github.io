@@ -2,7 +2,7 @@
 
 &nbsp;   
   
-###Recent Publciations
+### Recent Publciations
 
 Liles, G.C., **Maxwell T. M.**, Silva L.C.R., Zhang, J., Horwath W.R.H. (*In Press*) Two decades of experimental manipulation reveal potential for enhanced biomass accumulation in ponderosa pine plantations across climate gradients. J. Geophys. Res Biogeosciences.
 
@@ -14,7 +14,7 @@ Jerszurki, D. Couvreur, V., **Maxwell, T.M.**, Silva, L.C.R., Matsumoto, N., Sha
 
 **Maxwell, T. M.**, Silva, L. C. R. & Horwath, W. R. (2014). Using multielement isotopic analysis to decipher drought impacts and adaptive management in ancient agricultural systems. Proc. Natl. Acad. Sci. 2–3. [doi:10.1073/pnas.1417618111](http://www.pnas.org/content/111/45/E4807.full)
 
-###In progress
+### In progress
 
 Broz, A., Retallack, G.J.**Maxwell T. M.**, Silva, LCR (*Submitted*) Paleoproxy for vapor pressure deficit (VPD) from fossil cellulose and pedogenic carbonate.*Geology*  
 
