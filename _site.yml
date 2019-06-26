@@ -9,8 +9,8 @@ navbar:
       href: projects.html
     - text: "Publications"
       href: pubs.html
-    - text: "Resume"
-      href: https://tobymaxwell.github.io/files/Resume.pdf
+    - text: "CV"
+      href: https://tobymaxwell.github.io/files/CV.pdf
     - text: "Methods"
       href: methods.html
 
