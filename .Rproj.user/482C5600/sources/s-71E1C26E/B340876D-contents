@@ -1,0 +1,30 @@
+---
+title: "Multimodel Inference"
+author: "Toby Maxwell"
+date: "11/7/2018"
+output: html_document
+---
+
+```{r}
+library(MuMIn)
+data("mtcars")
+str(mtcars) #auto industry dataset that is included with R to predict most important factors for gas mileage (mpg)
+model<-lm(mpg~., mtcars) #the . after the ~ means include the whole dataset
+options(na.action = "na.fail") #needs this option set to run model tool
+```
+
+``` {r results="hide"}
+multi<-dredge(model, trace=1) #find all models for mpg, trace setting makes it show progress bar
+```
+
+```{r}
+multi.cut<-get.models(multi, subset= delta<2) #delta is the difference in AIC from the best model, so subsetting the models into those within 2 of best model.
+imp.multi<-importance(multi.cut) # importance is sum of akaike weights for each variable. Weights are 
+imp.multi #shoes importance of variables from models in multi.cut
+barplot(t(imp.multi)) #display importance values
+multi.mod<-model.avg(multi.cut)
+multi.mod
+summary(multi.mod) #check out model coefficients 
+plot(mpg~predict(multi.mod), mtcars, main = "Model Prediction") #how well does model work?
+```
+

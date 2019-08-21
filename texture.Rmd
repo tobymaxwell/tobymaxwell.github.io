@@ -70,7 +70,7 @@ n = fluid viscosity
 Aluminum weigh boats 
 Scale (a standard analytical scale that measures to 0.0001 g)  
 50 mL dispensette   
-adjustable 50 mL pipette with tips and stopper (can make your own)  
+adjustable 5 mL pipette with tips  
 reciprocating shaker  
 0.5% Sodium Hexametaphosphate - 5 g/L  
 
@@ -92,7 +92,7 @@ library(knitr)
 kable(settlingtime, caption="Settling Times for Sand and Clay Sampling by Temperature")
 ```
 
-6. Pipette 2.5 mL from each vial 2.5 mL below the surface of the solution for each measurement of sand and clay. Dispense that in preweighed tins, dry in an oven until water is removed.  
+6. Pipette 2.5 mL from each vial 2.5 cm below the surface of the solution for each measurement of sand and clay. Make sure to mark 2.5 cm using a marker onto the pipette tip. For samples with high organic matter, cut tip to be sure it is wide. If >10% organic, consider removal with hydrogen peroxide. Dispense that in preweighed tins, dry in an oven until water is removed.  
 7. Remove dried tins, allow to cool, and record dry weight to nearest 0.0001 grams.  
   
 ####Calculations
