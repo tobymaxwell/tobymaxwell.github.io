@@ -1,0 +1,38 @@
+numbers<-rnorm(10, 5,2)
+add5<-function(x){x+5}
+lapply(numbers, add5)
+sapply(numbers, add5)
+
+
+x<-5
+new<-NULL
+comb<-NULL
+for( i in numbers[1:2]){
+  new<-i+x
+  comb<-c(new, comb)
+}
+comb
+
+
+
+x<-raster(nrows=10, ncol=10, vals=rnorm(100, 50, 20))
+x1<-raster(nrows=10, ncol=10, vals=rnorm(100, 50, 20))
+x2<-raster(nrows=10, ncol=10, vals=rnorm(100, 50, 20))
+extent(x2)
+plot(x)
+plot(x1)
+plot(x2)
+bounds<-extent(-180,0,-180,0)
+
+rasters<-c(x,x1, x2)
+new<-NULL
+brick<-NULL
+for(i in rasters){
+  new<-crop(i, bounds)
+  new2.0<-new*5
+brick<-c(new, brick)
+}
+brick
+plot(x)
+plot(brick[[3]], add=T)
+plot(brick[[3]], add=T, col="grey")

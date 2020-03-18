@@ -11,7 +11,7 @@
 
 
 
-<title>methods.utf8.md</title>
+<title></title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,8 +22,7 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -93,9 +92,6 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
-.html-widget {
-  margin-bottom: 20px;
-}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -113,6 +109,7 @@ body {
   padding-top: 69px;
   margin-top: -69px;
 }
+
 .section h2 {
   padding-top: 69px;
   margin-top: -69px;
@@ -132,43 +129,6 @@ body {
 .section h6 {
   padding-top: 69px;
   margin-top: -69px;
-}
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -190,77 +150,18 @@ $(document).ready(function () {
 });
 </script>
 
+
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
 </script>
 
 <!-- code folding -->
+
 
 
 
@@ -352,6 +253,10 @@ $(document).ready(function () {
 <p>In addition, carbon and nitrogen together tell the most basic information about relative nitrogen limitation in a system. Whether in leaf, litter, or soil, C:N ratios are an important indicator of nitrogen status of a plant, or ecosystem. A rule of thumb is that if C:N&gt;30 then the system is nitrogen depleted and microbial activity will tend to ‘immobilize’ nitrogen via increases in microbial biomass, less than 30 and nitrogen may be released by microbial mineralization of organic matter. Simply put, if microbes are limited, they stock up on N, if they have excess, they release it form the system.</p>
 <p>The methods of analysis are going to be different for every lab, but I have summarized the preparation steps <a href="CN.html">here</a></p>
 </div>
+<div id="modisterra-bulk-extraction-of-data-in-r" class="section level5">
+<h5><strong>MODIS/TERRA bulk extraction of data in R</strong></h5>
+<p>Modis provides a high frequency spatial data for many different parameters across the globe. My interest is most commonly in NDVI or EVI to look at productivity, but an amazing amount of data is available, see their <a href="https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table">list</a>. Beware however, that some products are linked, e.g. evapotranspiration is calculated from a relationship NDVI, so they are not independent. See my code for an efficient way to download and aggregate large amounts of modis data in my tutorial <a href="modisrts.html">here</a>. You will also need to download the modis reprojection tool <a href="https://lpdaac.usgs.gov/tools/modis_reprojection_tool">here</a>. It can cause some grief with installation on a mac, if this happens to you, check out <a href="https://www.romerostories.com/single-post/2017/12/22/Modis-Reprojection-Tool-MRT---Installation-tutorial">this help page</a> which I found helpful.</p>
+</div>
 <div id="leaf-area-index" class="section level5">
 <h5><strong>Leaf Area Index</strong></h5>
 <p>Leaf Area Index is an efficient way to measure the productivity of a site. It has been shown to relate to NDVI, evapotranspiration, and water use efficiency. An full hemispherical fisheye lens is required, but after that, you can get all the data you want! A description of how to take pictures in the field is <a href="lai.html">here</a>. I will not get into image processing, because there are liekly many options for that process. I have used free software that is available for processing images <a href="http://www.caryinstitute.org/science-program/our-scientists/dr-charles-d-canham/gap-light-analyzer-gla">from the cary institute</a>. This has worked well for me, and has excellent supporting documentation, and peer reviewed, published validation.</p>
@@ -373,14 +278,30 @@ $(document).ready(function () {
 <div id="soil-ph" class="section level5">
 <h5><strong>Soil pH</strong></h5>
 <p>Similar to texture, pH is a soil property that is often used as a very general indicator of soil processes, as it corresponds to many things including microbial community, weathering, fertility. It is quite easy to measure, highly studied, and commonly varies across natural gradients (e.g. climate), so it can provide useful insight into how soils vary over space. pH is also critical to determining the solubility of organic matter, as well as base cations in solution impacting many soil processes. Some things to consider when measuring pH are drescribed <a href="ph.html">here</a></p>
-<p>###Coming soon…</p>
-<p>#####Cellulose Extraction from plant tissue</p>
-<p>#####Specific Leaf Area Measurement</p>
-<p>#####Soil/plant Phosphorous Analysis</p>
-<p>#####Soil Avalable Water Capacity</p>
-<p>#####Soil Nitrate and Ammonium Analysis</p>
-<p>#####Basic use of Google Earth Engine for Time Series Analysis</p>
-<p>#####Trace Gas sampling protocols</p>
+</div>
+</div>
+<div id="coming-soon" class="section level3">
+<h3>Coming soon…</h3>
+<div id="cellulose-extraction-from-plant-tissue" class="section level5">
+<h5>Cellulose Extraction from plant tissue</h5>
+</div>
+<div id="specific-leaf-area-measurement" class="section level5">
+<h5>Specific Leaf Area Measurement</h5>
+</div>
+<div id="soilplant-phosphorous-analysis" class="section level5">
+<h5>Soil/plant Phosphorous Analysis</h5>
+</div>
+<div id="soil-avalable-water-capacity" class="section level5">
+<h5>Soil Avalable Water Capacity</h5>
+</div>
+<div id="soil-nitrate-and-ammonium-analysis" class="section level5">
+<h5>Soil Nitrate and Ammonium Analysis</h5>
+</div>
+<div id="basic-use-of-google-earth-engine-for-time-series-analysis" class="section level5">
+<h5>Basic use of Google Earth Engine for Time Series Analysis</h5>
+</div>
+<div id="trace-gas-sampling-protocols" class="section level5">
+<h5>Trace Gas sampling protocols</h5>
 </div>
 </div>
 
