@@ -4,6 +4,8 @@
   
 ### Recent Publciations
 
+**Maxwell T. M.**, Silva L.C.R. (2020) A State Factor Model for Ecosystem Carbon – Water Relations. Trends in Plant Science.[doi:10.1016/j.tplants.2020.02.007](https://www.sciencedirect.com/science/article/abs/pii/S136013852030056X)
+
 Liles, G.C., **Maxwell T. M.**, Silva L.C.R., Zhang, J., Horwath W.R.H. (2019) Two decades of experimental manipulation reveal potential for enhanced biomass accumulation in ponderosa pine plantations across climate gradients. J. Geophys. Res Biogeosciences. [doi: 10.1029/2019JG005183](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019JG005183)
 
 **Maxwell T.M.**, Silva L.C.R., Horwath W.R. (2018) Predictable oxygen isotope exchange between plant lipids and environmental water: implications for ecosystem water balance reconstruction. J. Geophys. Res Biogeosciences. [doi:10.1029/2018JG004553](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JG004553).
@@ -15,9 +17,10 @@ Jerszurki, D. Couvreur, V., **Maxwell, T.M.**, Silva, L.C.R., Matsumoto, N., Sha
 **Maxwell, T. M.**, Silva, L. C. R. & Horwath, W. R. (2014). Using multielement isotopic analysis to decipher drought impacts and adaptive management in ancient agricultural systems. Proc. Natl. Acad. Sci. 2–3. [doi:10.1073/pnas.1417618111](http://www.pnas.org/content/111/45/E4807.full)
 
 ### In progress
+Broz, A., Retallack, G.J., **Maxwell, T.M.** and Silva, L.C.R, (In Review). Vapor pressure deficit preserved in wood and soil across biomes. *Scientific Reports.*
 
-Broz, A., Retallack, G.J.**Maxwell T. M.**, Silva, LCR (*Submitted*) Paleoproxy for vapor pressure deficit (VPD) from fossil cellulose and pedogenic carbonate.*Geology*  
+**Maxwell, T.M.**, Bridgham, S., and Silva, L.C.R. (In prep) Biodiversity drives ecological interactions that control native plant resilience to drought. 
 
-**Maxwell T. M.**, Silva L.C.R., Horwath WRH (*In preparation*) Observed and projected climate change impacts on productivity and efficiency of common wheat (Triticum aestivum L.) across California: A case study in production from 1981 to 2070. *For submission to Science Advances*
+**Maxwell, T.M.**, and Silva, L.C.R. (In prep) Rising influence of soil properties over the last century explains shifting productivity thresholds in Oregon's sub-alpine forests. 
 
-**Maxwell T. M.**, Silva L.C.R. (*In preparation*) Towards a more interdisciplinary science of ecosystems *For submission to Trends in Plant Science*
+Dawson, H.R., **Maxwell, T.M.**, and Silva, L.C.R. (In prep) Plant traits drive water use efficiency and resilience to drought across a climate gradient in Pacific Northwest Prairies.
