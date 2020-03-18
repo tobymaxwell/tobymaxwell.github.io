@@ -21,8 +21,6 @@ navbar:
       href: https://twitter.com/tobymmaxwell
     - icon: fa-linkedin fa-lg
       href: https://www.linkedin.com/in/toby-maxwell-18aa195b/
-    - icon: fa-github fa-lg
-      href: http://github.com/eeooo4
 output:
   html_document:
     theme: paper

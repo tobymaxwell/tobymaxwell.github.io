@@ -3,4 +3,4 @@ title: ''
 output: html_document
 ---
 
-Email: [tmaxwell@uoregon.edu](tmaxwell@uoregon.edu)
+Email: [toby.m.maxwell@gmail.com](toby.m.maxwell@gmail.com)
