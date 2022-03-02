@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title>pubs.utf8.md</title>
+<title>pubs.knit</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,18 +19,31 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -43,38 +56,11 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -82,13 +68,8 @@ h6 {
   margin-left: auto;
   margin-right: auto;
 }
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -99,40 +80,16 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 64px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
-.section h2 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
-.section h3 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
-.section h4 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
-.section h5 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
-.section h6 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -160,7 +117,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -172,7 +129,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -183,14 +140,25 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -200,7 +168,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -236,6 +203,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -248,20 +216,17 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -313,18 +278,12 @@ $(document).ready(function () {
      
   </a>
 </li>
-<li>
-  <a href="http://github.com/eeooo4">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -335,19 +294,17 @@ $(document).ready(function () {
 <p> </p>
 <div id="recent-publciations" class="section level3">
 <h3>Recent Publciations</h3>
+<p><strong>Maxwell, T.M.</strong>, Germino, M.J., Romero, S., Porensky, L., Blumenthal, D., Adler, P. (In prep) Climate variability introduced by manipulated soil-surface albedo affects phenology and growth of cheatgrass. Target Journal: Rangeland Ecology and Management.</p>
+<p><strong>Maxwell, T.M.</strong>, Germino, M.J. (In review). The effects of cheatgrass invasion on US Great Basin carbon storage depend on interactions between plant community composition, precipitation seasonality, and soil climate regime. Journal of Applied Ecology.</p>
+<p>Dawson, H.R., <strong>Maxwell, T.M.</strong>, Reed, P. B., Bridgham, S., and Silva, L.C.R. (In Review) Plant form- function relationships predict water-use efficiency under experimental drought in grasslands. Journal of Experimental Botany.</p>
+<p>Renwick, L.L.R., Deen, W.,Silva, L.C.R., Gilbert, M.E., <strong>Maxwell, T.M.</strong>, Bowles, T.M., Gaudin, A.C.M. (2021). Long-term crop rotation diversification enhances maize drought resistance through soil organic matter. Environmental Research Letters. <a href="https://doi.org/10.1088/1748-9326/ac1468">doi: 10.1088/1748-9326/ac1468</a></p>
+<p>Broz, A., Retallack, G.J., <strong>Maxwell, T.M.</strong> and Silva, L.C.R, (2021). A record of vapour pressure deficit preserved in wood and soil across biomes. Nature Scientific Reports.<a href="https://doi.org/10.1038/s41598-020-80006-9">doi:10.1038/s41598-020-80006-9</a></p>
 <p><strong>Maxwell T. M.</strong>, Silva L.C.R. (2020) A State Factor Model for Ecosystem Carbon – Water Relations. Trends in Plant Science.<a href="https://www.sciencedirect.com/science/article/abs/pii/S136013852030056X">doi:10.1016/j.tplants.2020.02.007</a></p>
 <p>Liles, G.C., <strong>Maxwell T. M.</strong>, Silva L.C.R., Zhang, J., Horwath W.R.H. (2019) Two decades of experimental manipulation reveal potential for enhanced biomass accumulation in ponderosa pine plantations across climate gradients. J. Geophys. Res Biogeosciences. <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019JG005183">doi: 10.1029/2019JG005183</a></p>
 <p><strong>Maxwell T.M.</strong>, Silva L.C.R., Horwath W.R. (2018) Predictable oxygen isotope exchange between plant lipids and environmental water: implications for ecosystem water balance reconstruction. J. Geophys. Res Biogeosciences. <a href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JG004553">doi:10.1029/2018JG004553</a>.</p>
 <p><strong>Maxwell, T.M.</strong>, Silva, L.C.R. &amp; Horwath, W.R. (2018). Integrating effects of species composition and soil properties to predict shifts in montane forest carbon–water relations. Proc. Natl. Acad. Sci. <a href="http://www.pnas.org/content/early/2018/04/13/1718864115.full">doi:10.1073/PNAS.1718864115</a></p>
 <p>Jerszurki, D. Couvreur, V., <strong>Maxwell, T.M.</strong>, Silva, L.C.R., Matsumoto, N., Shackel, K., de Souza, J.L.M., Hopmans, J. (2017). Impact of root growth and hydraulic conductance on canopy carbon-water relations of young walnut trees (Juglans regia L.) under drought. Sci. Hortic. (Amsterdam). 226. <a href="https://www.sciencedirect.com/science/article/pii/S0304423817305216">doi:10.1016/j.scienta.2017.08.051</a></p>
 <p><strong>Maxwell, T. M.</strong>, Silva, L. C. R. &amp; Horwath, W. R. (2014). Using multielement isotopic analysis to decipher drought impacts and adaptive management in ancient agricultural systems. Proc. Natl. Acad. Sci. 2–3. <a href="http://www.pnas.org/content/111/45/E4807.full">doi:10.1073/pnas.1417618111</a></p>
-</div>
-<div id="in-progress" class="section level3">
-<h3>In progress</h3>
-<p>Broz, A., Retallack, G.J., <strong>Maxwell, T.M.</strong> and Silva, L.C.R, (In Review). Vapor pressure deficit preserved in wood and soil across biomes. <em>Scientific Reports.</em></p>
-<p><strong>Maxwell, T.M.</strong>, Bridgham, S., and Silva, L.C.R. (In prep) Biodiversity drives ecological interactions that control native plant resilience to drought.</p>
-<p><strong>Maxwell, T.M.</strong>, and Silva, L.C.R. (In prep) Rising influence of soil properties over the last century explains shifting productivity thresholds in Oregon’s sub-alpine forests.</p>
-<p>Dawson, H.R., <strong>Maxwell, T.M.</strong>, and Silva, L.C.R. (In prep) Plant traits drive water use efficiency and resilience to drought across a climate gradient in Pacific Northwest Prairies.</p>
 </div>
 
 
@@ -359,7 +316,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -367,6 +324,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
