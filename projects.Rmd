@@ -1,6 +1,6 @@
 # Current Projects
 
-### Impact of diversity in the pool of exotic species invading rangelands: response of soil resources, productivity and restoration potential. USDA NIFA.
+### Impact of diversity in the pool of exotic species invading rangelands: response of soil resources, productivity and restoration potential.
 
 Native sagebrush steppe restoration planting and a sensor array in the Boise River Wildlife Management Area, November, 2021
 <img src="images/planting.jpg" style="width:40%; border:2px solid; margin-right: 20px" align="left"> 
@@ -8,6 +8,27 @@ Native sagebrush steppe restoration planting and a sensor array in the Boise Riv
 Widespread invasion by exotic plants is a fundamental threat to the ecosystem functions provided by semiarid rangelands. While invasive species may occur as a dominant monoculture, many plant communities are affected by a diverse array of exotic plants across functional groups, which may differ in the ways in which they alter the soil environment, leaving behind “legacies” in soil environments that persist beyond these species’ removal in restoration efforts. Yet, the diversity of these invaders is rarely considered in the deployment of restoration efforts. We hypothesize that diversely invaded sites (i.e., containing high diversity of exotic species) may be impacted by a greater number of possible soil legacies that encourage these communities to return to a degraded, invaded state, exhibiting high “resilience” to our restoration efforts. To address this knowledge gap, we will employ an integrative field experiment to quantify restoration success across a gradient of invasive plant diversity, monitor the soil legacies left by pre-restoration invaders (including nitrogen and water cycling), and test possible management solutions to limit invaders’ legacy effects on soil health. The proposed work will: 1) explore how the composition of invaded communities influences the severity and diversity of legacies left by invasive species on soil conditions; 2) advance understanding of how these legacies influence whether communities are reinvaded; and 3) test a series of promising soil nitrogen and water management strategies to promote both healthy soils and recovery of native species, with clear application to ongoing restoration efforts across the Great Basin region. 
 
 &nbsp;  
+
+### Assessing the impacts of cheatgrass invasions on soil carbon storage and stabilization in sagebrush steppe rangelands.
+
+Cheatgrass growing at the base of a recently burned sagebrush, June 2022.  
+<img src="images/BRTE.jpg" style="width:40%; border:2px solid; margin-right: 20px" align="left"> 
+
+
+Invasive annual grasses are now present across millions of acres of the Great Basin. Positive feedback loops such as the notorious Invasive Grass-Fire Cycle support both their spread and dominance. A shift to annual grass dominated rangelands is not only detrimental to native plants, wildlife, and ranchers, but also represents a shift in the dominant plant functional group across many post-fire sites in the Great Basin. Despite obvious differences in phenology, aboveground productivity, and root architecture, there is not a clear consensus regarding the effect of invasive annual grasses on ecosystem carbon storage. This study will address this uncertainty by measuring soil carbon across rangelands in the Western United States in side-by-side plots of relatively uninvaded and highly invaded areas that have not burned in a wildfire for at least 20 years.   
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;    
+
+
+
+
+
+
 
 ### Bromecast: Manipulating micro-climate to quantify the impacts of climate change on Cheatgrass and improve prediction of its fitness in sagebrush steppe rangelands across the Western United States 
 
